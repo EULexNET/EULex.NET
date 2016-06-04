@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:elx="http://eur-lex.europa.eu/search" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://eur-lex.europa.eu/search" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wssutil="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<wsp:UsingPolicy wssutil:Required="true" />
+	<wsp:Policy wssutil:Id="policy">
+		<ns0:SupportingTokens
+			xmlns:ns0="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512">
+			<wsp:Policy>
+				<ns0:UsernameToken
+					ns0:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/AlwaysToRecipient">
+					<wsp:Policy>
+						<ns0:WssUsernameToken11 />
+					</wsp:Policy>
+				</ns0:UsernameToken>
+			</wsp:Policy>
+		</ns0:SupportingTokens>
+	</wsp:Policy>
+
+    <types>
+		<xs:schema>
+			<xs:import namespace="http://eur-lex.europa.eu/search"
+				schemaLocation="http://eur-lex.europa.eu/eurlex-ws?xsd=3" />
+   		</xs:schema>
+	</types>
+
+	<message name="doQueryRequest">
+		<part name="request" element="elx:searchRequest" />
+	</message>
+
+	<message name="doQueryResponse">
+		<part name="response" element="elx:searchResults" />
+	</message>
+
+	<message name="Fault">
+		<part name="fault" element="elx:Fault" />
+	</message>
+
+	<portType name="EURLexWebServiceProvider">
+		<operation name="doQuery">
+			<input message="elx:doQueryRequest" />
+			<output message="elx:doQueryResponse" />
+			<fault message="elx:Fault" name="Fault" />
+		</operation>
+	</portType>
+
+	<binding name="EURLexWebServicePortBinding" type="elx:EURLexWebServiceProvider">
+		<wsp:PolicyReference URI="#policy" />
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="doQuery">
+			<soap12:operation soapAction="http://eur-lex.europa.eu/EURLexWebService/doQuery" />
+			<input>
+				<soap12:body use="literal" />
+			</input>
+			<output>
+				<soap12:body use="literal" />
+			</output>
+			<fault name="Fault">
+				<soap12:fault name="Fault" use="literal" />
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="EURLexWebService">
+		<port name="EURLexWebServicePort" binding="elx:EURLexWebServicePortBinding">
+			<soap12:address
+				location="http://eur-lex.europa.eu/EURLexWebService" />
+		</port>
+	</service>
+</definitions>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                       targetNamespace="http://eur-lex.europa.eu/search"
+                       xmlns="http://eur-lex.europa.eu/search">
+                       
+    <xs:complexType name="dateType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="conceptType">
+        <xs:sequence>
+            <xs:element name="uri" type="xs:string"/>
+            <xs:element name="identifier" type="xs:string"/>
+            <xs:element name="preferredLabel" type="xs:string"/>
+            <xs:element name="fallbackLabel">
+                <xs:complexType>
+                     <xs:sequence>
+                         <xs:element name="language" type="xs:string"/>
+                         <xs:element name="preferredLabel" type="xs:string"/>
+                     </xs:sequence>   
+                 </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="referenceType">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="identifier" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="searchLanguageType">
+   		<xs:restriction base="xs:string">
+   			<xs:enumeration value="bg"/>
+   			<xs:enumeration value="cs"/>
+   			<xs:enumeration value="da"/>
+   			<xs:enumeration value="nl"/>
+   			<xs:enumeration value="en"/>
+   			<xs:enumeration value="et"/>
+   			<xs:enumeration value="fi"/>
+   			<xs:enumeration value="fr"/>
+   			<xs:enumeration value="de"/>
+   			<xs:enumeration value="el"/>
+   			<xs:enumeration value="hu"/>
+   			<xs:enumeration value="ga"/>
+   			<xs:enumeration value="it"/>
+   			<xs:enumeration value="lv"/>
+   			<xs:enumeration value="lt"/>
+   			<xs:enumeration value="mt"/>
+   			<xs:enumeration value="pl"/>
+   			<xs:enumeration value="pt"/>
+   			<xs:enumeration value="ro"/>
+   			<xs:enumeration value="sk"/>
+   			<xs:enumeration value="sl"/>
+   			<xs:enumeration value="es"/>
+   			<xs:enumeration value="sv"/>
+   			<xs:enumeration value="hr"/>
+   		</xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="queryErrorType">
+   		<xs:restriction base="xs:string">
+   			<xs:enumeration value="WS_INTERNAL_ERROR"/>
+   			<xs:enumeration value="WS_QUERY_SYNTAX_ERROR"/>
+   			<xs:enumeration value="WS_ERROR_ON_STOP_WORD"/>
+   			<xs:enumeration value="WS_MAXIMUM_NB_OF_WS_CALLS"/>
+   			<xs:enumeration value="WS_STATUS_NOT_AVAILABLE"/>
+   			<xs:enumeration value="WS_PAGE_SIZE_TOO_BIG"/>
+   		</xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>

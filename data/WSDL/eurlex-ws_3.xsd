@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://eur-lex.europa.eu/search" xmlns="http://eur-lex.europa.eu/search"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:include schemaLocation="http://eur-lex.europa.eu/eurlex-ws?xsd=1"></xs:include>
+	<xs:include schemaLocation="http://eur-lex.europa.eu/eurlex-ws?xsd=2"></xs:include>
+
+	<xs:element name="Fault" nillable="true" type="faultBean" />
+
+	<xs:complexType name="faultBean">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="searchRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="expertQuery" type="xs:string" />
+				<xs:element name="page" type="xs:int" />
+				<xs:element name="pageSize" type="xs:int" />
+				<xs:element name="searchLanguage" type="searchLanguageType" />
+				<xs:element minOccurs="0" maxOccurs="1" name="limitToLatestConsleg" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="excludeAllConsleg" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="searchResults">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="numhits" maxOccurs="1" type="xs:integer" />
+				<xs:element name="totalhits" maxOccurs="1" type="xs:integer" />
+				<xs:element name="page" maxOccurs="1" type="xs:integer" minOccurs="0" />
+				<xs:element name="language" maxOccurs="1"
+					type="searchLanguageType" />
+				<xs:element name="result" type="resultType" maxOccurs="unbounded"/>
+				<xs:element name="warning" type="resultWarning" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="resultType">
+		<xs:sequence>
+			<xs:element name="reference" minOccurs="1" maxOccurs="1"
+				type="xs:string" />
+			<xs:element name="rank" minOccurs="1" maxOccurs="1"
+				type="xs:integer" />
+			<xs:element name="document-link" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" type="xs:string" default="required" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="content" maxOccurs="1" minOccurs="1"
+				type="documentType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="resultWarning">
+		<xs:sequence>
+			<xs:element name="message" minOccurs="1" maxOccurs="1"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="fault">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

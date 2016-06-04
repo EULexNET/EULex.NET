@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://eur-lex.europa.eu/search" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" xmlns="http://eur-lex.europa.eu/search">
+
+	<xs:complexType name="documentType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="NOTICE"/>
+			<xs:element ref="CONTENT_URL" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="CONTENT_URL">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DRECONTENT" minOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="DRECONTENT" type="xs:string"/>
+
+	<xs:element name="NOTICE">
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:element name="EXPRESSION" type="expressionType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="INVERSE" type="inverseType" minOccurs="0"/>
+					<xs:element name="MANIFESTATION" type ="manifestationType" minOccurs="0" />
+					<xs:element name="WORK" type="workType"/>
+				</xs:sequence>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:element name="DOSSIER" type="dossierType"/>	
+					<xs:element name="EVENT" type="eventType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="INVERSE" type="inverseType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:attribute name="decoding" use="optional"/>
+			<xs:attribute name="type" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="indexing"/>
+						<xs:enumeration value="identifier"/>
+						<xs:enumeration value="object"/>
+						<xs:enumeration value="tree"/>
+						<xs:enumeration value="branch"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="workType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="ACT_CONSOLIDATED_BASED_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ACT_CONSOLIDATED_DATE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AGREEMENT_INTERNATIONAL_ASSOCIATED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="AGREEMENT_INTERNATIONAL_HAS_TYPE_COMMENT_CONCEPT_TYPE_COMMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ASKED_BY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_AFFAIRE_NUMBER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_AFFAIRE_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_AFFECTS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_AMENDS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_ARTICLE_JOURNAL_RELATED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_COMMENTED_BY_AGENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_CONFIRMS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_CORRECTS_JUDGEMENT_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DECLARES_INCIDENTALLY_VALID_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DECLARES_VALID_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DECLARES_VOID_BY_PRELIMINARY_RULING_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DECLARES_VOID_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DEFENDED_BY_AGENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DEFERS_APPLICATION_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DELIVERED_BY_ADVOCATE-GENERAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DELIVERED_BY_COURT_NATIONAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DELIVERED_BY_JUDGE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_HAS_TYPE_PROCEDURE_CONCEPT_TYPE_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_IMMEDIATELY_ENFORCES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_INCIDENTALLY_DECLARES_VOID_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_INTERPRETES_JUDGEMENT_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_INTERPRETES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_IS_ABOUT_CONCEPT.MEMBERLIST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL-JUDGEMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_ACT_REFERENCE_EUROPEAN" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_ACT_REFERENCE_NATIONAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_BASED_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_DECISION_INTERNAL_IDENTIFIER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_JUDGEMENT_REFERENCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_KEYWORDS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_PARTIES" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_NATIONAL_REFERENCE_PUBLICATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_ORIGINATES_IN_COUNTRY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_PARTIALLY_ANNULS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_PUBLISHED_IN_ERECUEIL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REEXAMINED_BY_CASE_COURT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REQUESTED_BY_AGENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REQUESTS_ANNULMENT_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REQUESTS_FOR_FAILURE_TO_FULFILL_AN_OBLIGATION_FOR_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REQUESTS_INTERPRETATION_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REQUESTS_OPINION_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REQUESTS_VALIDATION_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_REVIEWS_JUDGEMENT_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_STATES_FAILURE_CONCERNING_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_SUBJECT_TO_APPEAL_IN_CASE_COURT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_SUSPENDS_APPLICATION_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CASE_NEW_REQUESTS_ANNULMENT_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CASE_NEW_REQUESTS_ESTABLISHMENT_OF_FAILURE_OF_OBLIGATION_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CASE_NEW_REQUESTS_INAPPLICABILITY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CASE_NEW_REQUESTS_PARTIAL_ANNULMENT_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CASE_NEW_REQUESTS_REVIEW_OF_DECISION_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CASE_NEW_SUBMITS_PRELIMINARY_QUESTION_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CJEU_COMMUNICATES_ON_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CJEU_DEFENDED_BY_AGENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CJEU_HAS_TYPE_PROCEDURE_CONCEPT_TYPE_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_CJEU_REQUESTED_BY_AGENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COMMUNICATION_REQUEST_OPINION_REQUESTS_OPINION_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COOPERATION_POLICE-AND-JUDICIAL_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CREATED_BY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DATE_CREATION_LEGACY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DATE_DEBATE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DATE_NOTIFICATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DATE_REPLY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DECISION_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DIRECTIVE_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ECLI" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ID_CELEX" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ID_LEGISSUM" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ID_OBSOLETE_DOCUMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ID_SECTOR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="LASTMODIFICATIONDATE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="LEGAL_EFFECT_PAPER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MEASURE_NATIONAL_IMPLEMENTING_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MEASURE_NATIONAL_IMPLEMENTING_IMPLEMENTS_DIRECTIVE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_CLASS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_NUMBER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_PART_OF_COLLECTION_DOCUMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OPINION_CJEU_GIVEN_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_NUMBER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PUBLISHED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="QUESTION_PARLIAMENTARY_ASKED_BY_GROUP_PARLIAMENTARY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="QUESTION_PARLIAMENTARY_DATE_REPLY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RECOMMENDATION_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RECOMMENDATION_ECSC_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="REGULATION_DATE_TRANSPOSITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="REPORTED_BY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL-PUBLISHED_IN_RECUEIL-SPECIAL-EDITION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADDED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADDRESSES_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADDRESSES_ORGANIZATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADDS_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADOPTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADOPTS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDMENT_PROPOSED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_APPLICATION_DEFERRED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_APPLICATION_EXTENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_APPLICATION_SUSPENDED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_BASED_ON_CONCEPT_TREATY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_BASED_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_COMMENT_INTERNAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_COMPLETED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_COMPLETES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONFIRMED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONFIRMED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONFIRMS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONTAINS_COR_OPINION_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONTAINS_EESC_OPINION_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONTAINS_EP_OPINION_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CORRECTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CORRECTS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_COR_OPINION_CONTAINED_IN_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_DEADLINE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_DISPATCH" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_END-OF-VALIDITY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_REQUEST_OPINION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_SIGNATURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DATE_VOTE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DECLARED_VALID_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DECLARED_VOID_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DECLARED_VOID_BY_PRELIMINARY_RULING_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DEFERS_APPLICATION_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DEROGATED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DEROGATES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_EESC_OPINION_CONTAINED_IN_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ELI" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_EP_OPINION_CONTAINED_IN_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_EXTENDS_APPLICATION_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_EXTENDS_VALIDITY_OF_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_FAILURE_STATED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ID_LOCAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMMEDIATELY_ENFORCED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMPLEMENTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMPLEMENTS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMPLICITLY_REPEALED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMPLICITLY_REPEALS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IN-FORCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCIDENTALLY_DECLARED_VALID_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCIDENTALLY_DECLARED_VOID_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCORPORATED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCORPORATES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INFORMATION_MISCELLANEOUS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETED_AUTHORITATIVELY_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETES_AUTHORITATIVELY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_NUMBER_CORRIGENDUM" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_NUMBER_NATURAL_CELEX" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_ADOPTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_ADOPTS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_REFERRED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_REFERS_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_SUSPENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_SUSPENDS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_POSITION_EESC" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PROPOSES_TO_AMEND_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PUBLISHED_IN_COURT-REPORT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PUBLISHED_IN_OFFICIAL-JOURNAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PUBLISHED_IN_RECUEIL-JURISPRUDENCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PUBLISHED_IN_SPECIAL-OFFICIAL-JOURNAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REESTABLISHED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REESTABLISHES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RELATED_QUESTION_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RELATED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RENDERED_OBSOLETE_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RENDERS_OBSOLETE_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPEALED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPEALS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPERTOIRE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPLACED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPLACES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_SUSPENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_SUSPENDS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_TACKLES_SIMILAR_QUESTION_AS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_USES_ORIGINALLY_LANGUAGE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_VALIDITY_EXTENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SERVICE_ASSOCIATED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SERVICE_RESPONSIBLE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SPECIAL-OFFICIAL-JOURNAL_VOLUME" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="STORED_BY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SUMMARY_LEGISLATION_EU_ID_DOC_RELATED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SUMMARY_LEGISLATION_EU_ID_DOC_SUMMARIZED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SUMMARY_LEGISLATION_EU_IS_ABOUT_CLASSIFICATION_SUMMARY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SUMMARY_LEGISLATION_EU_OBSOLETE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SUMMARY_LEGISLATION_EU_VALIDATED_BY_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SUMMARY_SUMMARIZES_WORK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="TERM_PARLIAMENTARY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+			<xs:element ref="WORK_CITES_WORK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_CREATED_BY_AGENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_DATE_DOCUMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_HAS_EXPRESSION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_HAS_RESOURCE-TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_IS_ABOUT_CONCEPT_EUROVOC" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_PART_OF_COLLECTION_DOCUMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_RELATED_TO_WORK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_TABLE-OF-CONTENTS" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="manifestationType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="MANIFESTATION_CASE-LAW_COSTS_DECISIONS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_ENDORSEMENTS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_GROUNDS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_KEYWORDS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_OPERATIVE_PART" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_OPINION_ADVOCATE-GENERAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_PARTIES" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_STAFF_CASE_SUMMARY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_SUBJECT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_CASE-LAW_SUMMARY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_COURT-REPORT_PART_PAGE_FIRST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_COURT-REPORT_PART_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_COURT-REPORT_PART_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_HAS_ITEM" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIA-JOURNAL_PART_NUMBER_PAGE_DEBATE_EP" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_AUTHOR_PRINTER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_NUMBER_PUBLICATION_DEBATE_EP" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_FIRST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_LAST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_SECTION_OJ" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_TYPEDOC_PRINTER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_SPECIAL-COURT-REPORT_PART_PAGE_FIRST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_SPECIAL-COURT-REPORT_PART_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_SPECIAL-COURT-REPORT_PART_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_URI" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="manifestation-type" use="prohibited"/>
+	</xs:complexType>
+	
+	<xs:complexType name="expressionType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="EXPRESSION_CASE-LAW_IDENTIFIER_CASE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EXPRESSION_CASE-LAW_PARTIES" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EXPRESSION_SUBTITLE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EXPRESSION_TITLE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EXPRESSION_TITLE_ALTERNATIVE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EXPRESSION_USES_LANGUAGE" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="inverseType">
+		<xs:sequence maxOccurs="unbounded">			
+			<xs:element ref="CASE-LAW_COMMUNICATED_ON_BY_COMMUNICATION_CJEU" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CASE-LAW_DECISION_REVIEW_REQUESTED_BY_COMMUNICATION_CASE_NEW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADDED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADOPTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_AMENDMENT_PROPOSED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ANNULMENT_REQUESTED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ANNULMENT_REQUESTED_BY_COMMUNICATION_CASE_NEW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_APPLICATION_DEFERRED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_APPLICATION_EXTENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_APPLICATION_SUSPENDED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_BASIS_FOR_ACT_CONSOLIDATED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_COMPLETED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONFIRMED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONFIRMED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CONSOLIDATED_BY_ACT_CONSOLIDATED" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_CORRECTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_COR_OPINION_CONTAINED_IN_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DECLARED_VALID_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DECLARED_VOID_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DECLARED_VOID_BY_PRELIMINARY_RULING_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_DEROGATED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_EESC_OPINION_CONTAINED_IN_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_EP_OPINION_CONTAINED_IN_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ESTABLISHES_FAILURE_TO_FULFILL_OBLIGATION_REQUESTED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ESTABLISHMENT_OF_FAILURE_OF_OBLIGATION_REQUESTED_BY_COMMUNICATION_CASE_NEW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_FAILURE_STATED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMMEDIATELY_ENFORCED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMPLEMENTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IMPLICITLY_REPEALED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INAPPLICABILITY_REQUESTED_BY_COMMUNICATION_CASE_NEW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCIDENTALLY_DECLARED_VALID_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCIDENTALLY_DECLARED_VOID_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INCORPORATED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETATION_REQUESTED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETED_AUTHORITATIVELY_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_INTERPRETED_BY_JUDGEMENT_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_JUDGEMENT_CORRECTED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_OPINION_REQUESTED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_OPINION_REQUESTED_BY_COMMUNICATION_REQUEST_OPINION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_ADOPTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_ANNULLED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_REFERRED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIALLY_SUSPENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PARTIAL_ANNULMENT_REQUESTED_BY_COMMUNICATION_CASE_NEW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PRELIMINARY_QUESTION-SUBMITTED_BY_COMMUNICATION_CASE_NEW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_PUBLISHED_IN_SPECIAL-OFFICIAL-JOURNAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RECEIVED_OPINION_CJEU" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REESTABLISHED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RELATED_QUESTION_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RELATED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_RENDERED_OBSOLETE_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPEALED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REPLACED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_REVIEWED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_SUSPENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_TACKLES_SIMILAR_QUESTION_AS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_VALIDATION_REQUESTED_BY_CASE-LAW" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_VALIDITY_EXTENDED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_PART_OF_DOSSIER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_PART_OF_EVENT_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_PART_OF_WORK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_RELATED_TO_WORK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_SUMMARIZED_BY_SUMMARY" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="dossierType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="BASED_ON" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="BASIS_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_ADOPTED-PROPOSAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_IDENTIFIER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_INITIATED_BY_ACT_PREPARATORY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_IS_ABOUT_CONCEPT_TYPE_DOSSIER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_NUMBER_REFERENCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_PENDING-PROPOSAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_PRODUCES_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_TYPE_REFERENCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_WITHDRAWN-PROPOSAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DOSSIER_YEAR_REFERENCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="NUMBER_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_BASED_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_HAS_TYPE_CONCEPT_TYPE_PROCEDURE_CODE_INTERINSTITUTIONAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_REFERENCE_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_YEAR_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_WITHOUT_CODE_INTERINSTITUTIONAL_BASED_ON_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="eventType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="EVENT_LEGAL_ADDRESSES_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_ASSOCIATED_WITH_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_CONSULTS_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_CONTAINS_WORK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_DATE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_DOCUMENT_REFERENCE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_DRAFTED_BY_PERSON" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_FORMALLY-ADDRESSES_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_GETS_OPINION_OF_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_GETS_REPORT_OF_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_HAS_REMARK_CONCEPT_TYPE_REMARK" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_HAS_TYPE_CONCEPT_TYPE_EVENT_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_HAS_TYPE_CONCEPT_TYPE_EVENT_LEGAL_IDENTIFIER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_INFORMS_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_INITIATED_BY_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_JOINT-RESPONSIBILITY_OF_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_JOINT-RESPONSIBILITY_OF_PERSON" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_MANDATORILY-CONSULTS_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_ON_AGENDA_CONCEPT_AGENDA_COUNCIL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_OPTIONALLY-CONSULTS_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_RESPONSIBILITY_OF_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_RESPONSIBILITY_OF_PERSON" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_USES_CONCEPT_MODE_DECISION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_USES_CONCEPT_TYPE_DECISION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EVENT_LEGAL_WAS_HISTORICALLY_ABOUT_CONCEPT_TYPE_DOSSIER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="REPORTED_BY" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:group name="property-annotation">
+		<xs:choice>
+			<xs:element ref="ARTICLE"/>
+			<xs:element name="BUILD_INFO"/>
+			<xs:element name="REFERENCE_TO_MODIFIED_LOCATION"/>
+			<xs:element name="START_OF_VALIDITY"/>
+			<xs:element name="TYPE_OF_LINK_TARGET"/>
+			<xs:element name="COMMENT" />
+			<xs:element name="COMMENT_ON_DATE" />
+			<xs:element name="COMMENT_ON_LEGAL_BASIS" />
+			<xs:element name="ERROR_MESSAGE" />
+			<xs:element name="PARAGRAPH"/>
+			<xs:element name="QUALITY_ISSUE" />
+			<xs:element name="SUBPARAGRAPH"/>
+			<xs:element name="TYPE_OF_DATE"/>
+			<xs:element name="SENTENCE"/>
+			<xs:element name="OLD_VALUE"/>
+			<xs:element name="FRAGMENT_CITED_TARGET"/>
+			<xs:element name="FRAGMENT_CITING_SOURCE"/>
+		</xs:choice>
+	</xs:group>
+
+	<xs:complexType name="URI">
+		<xs:all>
+			<xs:element name="VALUE" minOccurs="0"/>
+			<xs:element name="TYPE" minOccurs="0"/>
+			<xs:element name="IDENTIFIER" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	
+	<xs:simpleType name="type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="indexing"/>
+			<xs:enumeration value="identifier"/>
+			<xs:enumeration value="object"/>
+			<xs:enumeration value="tree"/>
+			<xs:enumeration value="branch"/>
+			<xs:enumeration value="data"/>
+			<xs:enumeration value="link"/>
+			<xs:enumeration value="date"/>
+			<xs:enumeration value="concept"/>
+			<xs:enumeration value="memberlist"/>
+			<xs:enumeration value="concept_level"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="EMBEDDED_NOTICEType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="AGENT" type="embeddedAgentType" minOccurs="0"/>
+			<xs:element name="DOSSIER" type="embeddedDossierType" minOccurs="0"/>
+			<xs:element name="EXPRESSION" type="embeddedExpressionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="INVERSE" type="inverseType" minOccurs="0"/>
+			<xs:element name="MANIFESTATION" type="embeddedManifestationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="WORK" type="embeddedWorkType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="embeddedExpressionType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="EXPRESSION_TITLE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="EXPRESSION_USES_LANGUAGE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="embeddedAgentType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="COURT_NATIONAL_HAS_TYPE_CONCEPT_CLASS_COURT_NATIONAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COURT_NATIONAL_NAME" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="embeddedDossierType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_HAS_TYPE_CONCEPT_TYPE_PROCEDURE_CODE_INTERINSTITUTIONAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_NUMBER_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_REFERENCE_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="PROCEDURE_CODE_INTERINSTITUTIONAL_YEAR_PROCEDURE" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="embeddedManifestationType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_FIRST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_LAST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_PART_OF_MANIFESTATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL_PART_PAGE_FIRST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL_PART_PAGE_LAST" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="manifestation-type" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="embeddedWorkType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="CONTAINER_CASE-LAW_COURT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CONTAINER_CASE-LAW_FASCICULE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CONTAINER_CASE-LAW_ID_NUMPUB" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CONTAINER_CASE-LAW_NUMBER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="CONTAINER_CASE-LAW_YEAR_DECISION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="COURT-REPORT_NUMBER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DATE_PUBLICATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ID_SECTOR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="LEGAL_EFFECT_PAPER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_CLASS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_NUMBER" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_PART_OF_COLLECTION_DOCUMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="OFFICIAL-JOURNAL_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_NUMBER_NATURAL_CELEX" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_YEAR" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SPECIAL-OFFICIAL-JOURNAL_FIRST_SERIES_HISTORICAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SPECIAL-OFFICIAL-JOURNAL_SECOND_SERIES_HISTORICAL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SPECIAL-OFFICIAL-JOURNAL_VOLUME" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_DATE_DOCUMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="WORK_IS_ABOUT_CONCEPT_EUROVOC" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="TYPE" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="mdtypes">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="string"/>
+			<xs:enumeration value="boolean"/>
+			<xs:enumeration value="decimal"/>
+			<xs:enumeration value="float"/>
+			<xs:enumeration value="double"/>
+			<xs:enumeration value="dateTime"/>
+			<xs:enumeration value="time"/>
+			<xs:enumeration value="date"/>
+			<xs:enumeration value="gYearMonth"/>
+			<xs:enumeration value="gYear"/>
+			<xs:enumeration value="gMonthDay"/>
+			<xs:enumeration value="gDay"/>
+			<xs:enumeration value="gMonth"/>
+			<xs:enumeration value="hexBinary"/>
+			<xs:enumeration value="base64Binary"/>
+			<xs:enumeration value="anyURI"/>
+			<xs:enumeration value="normalizedString"/>
+			<xs:enumeration value="token"/>
+			<xs:enumeration value="language"/>
+			<xs:enumeration value="NMTOKEN"/>
+			<xs:enumeration value="Name"/>
+			<xs:enumeration value="NCName"/>
+			<xs:enumeration value="integer"/>
+			<xs:enumeration value="nonPositiveInteger"/>
+			<xs:enumeration value="negativeInteger"/>
+			<xs:enumeration value="long"/>
+			<xs:enumeration value="int"/>
+			<xs:enumeration value="short"/>
+			<xs:enumeration value="byte"/>
+			<xs:enumeration value="nonNegativeInteger"/>
+			<xs:enumeration value="unsignedLong"/>
+			<xs:enumeration value="unsignedInt"/>
+			<xs:enumeration value="unsignedShort"/>
+			<xs:enumeration value="unsignedByte"/>
+			<xs:enumeration value="positiveInteger"/>
+			<xs:enumeration value="PlainLiteral"/>
+			<xs:enumeration value="XMLLiteral"/>
+			<xs:enumeration value="Literal"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="Literal">
+		<xs:choice>
+			<xs:element name="VALUE" minOccurs="0"/>
+			<xs:element ref="ANNOTATION" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="TYPE" type="type" use="optional" fixed="data"/>
+		<xs:attribute name="xsdType" use="optional" type="mdtypes"/>
+	</xs:complexType>
+
+	<xs:complexType name="Date">
+		<xs:all>
+			<xs:element ref="ANNOTATION" minOccurs="0"/>
+			<xs:element name="DAY" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="31"/>
+						<xs:totalDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MONTH" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="12"/>
+						<xs:totalDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VALUE" minOccurs="0" type="date"/>
+			<xs:element name="YEAR" minOccurs="0" type="xs:gYear"/>
+		</xs:all>
+		<xs:attribute name="TYPE" type="type" use="optional" fixed="date"/>
+	</xs:complexType>
+	
+	<xs:simpleType name="date">
+		<xs:restriction base="xs:string">
+			<!-- YYYY-MM-DD -->
+			<xs:pattern id="simpleDate" value="(((\d{0,2})?\d{2})-(((0?[13578]|1[02])-31)|((0?[1,3-9]|1[0-2])-(29|30))))|((((\d{0,2})?(0[48]|[2468][048]|[13579][26])|(([48]|1[26]|[2468][048]|[3579][26])00)))-(0?2-29))|(((\d{0,2})?\d{2})-((0?[1-9])|(1[0-2]))-(0?[1-9]|1\d|2[0-8]))" />
+			<!-- DD/MM/YYYY hh:mm:ss -->
+			<xs:pattern id="fullDate" value="((31\/(0?[13578]|1[02]))|((29|30)\/(0?[1,3-9]|1[0-2])))\/((\d{0,2})?\d{2})|(29\/0?2)\/(((\d{0,2})?(0[48]|[2468][048]|[13579][26])|(([48]|1[26]|[2468][048]|[3579][26])00)))|(0?[1-9]|1\d|2[0-8])\/((0?[1-9])|(1[0-2]))\/((\d{0,2})?\d{2})\s([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="Concept">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="ALTLABEL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ANNOTATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="COMPACT_URI" minOccurs="0"/>
+			<xs:element name="FALLBACK" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="PREFLABEL" minOccurs="0"/>
+						<xs:element name="LANG" minOccurs="0"/>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IDENTIFIER" minOccurs="0"/>
+			<xs:element name="OP-CODE" type="xs:string" minOccurs="0"/>
+			<xs:element name="PREFLABEL" minOccurs="0"/>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="TYPE" type="type" use="optional" fixed="concept"/>
+	</xs:complexType>
+	
+	<xs:group name="Identifier">
+		<xs:sequence>
+			<xs:element ref="SAMEAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="URI" type="URI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:element name="SAMEAS">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="URI" type="URI" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Relation">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="ALTLABEL" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ANNOTATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="EMBEDDED_NOTICE" minOccurs="0" type="EMBEDDED_NOTICEType"/>
+			<xs:element name="IDENTIFIER" type="xs:string" minOccurs="0"/>
+			<xs:element name="PREFLABEL" minOccurs="0"/>
+			<xs:group ref="Identifier" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="TYPE" type="type" use="optional" fixed="link"/>
+	</xs:complexType>
+
+	<xs:element name="ANNOTATION">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:group ref="property-annotation" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="MANIFESTATION_HAS_ITEM">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:group ref="Identifier" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="WORK_IS_ABOUT_CONCEPT_EUROVOC">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:choice>
+					<xs:element name="WORK_IS_ABOUT_CONCEPT_EUROVOC_CONCEPT" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="WORK_IS_ABOUT_CONCEPT_EUROVOC_DOM" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="WORK_IS_ABOUT_CONCEPT_EUROVOC_MTH" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="WORK_IS_ABOUT_CONCEPT_EUROVOC_TT" type="Concept" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:choice>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER_1" type="Concept"
+						minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:choice>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_1"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_2"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_3"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_4"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_5"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_6"
+						type="Concept" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT.MEMBERLIST">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded" minOccurs="1">
+				<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded" minOccurs="1">
+							<xs:choice>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_1"
+									type="Concept" minOccurs="0"/>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_2"
+									type="Concept" minOccurs="0"/>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_3"
+									type="Concept" minOccurs="0"/>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_4"
+									type="Concept" minOccurs="0"/>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_5"
+									type="Concept" minOccurs="0"/>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_6"
+									type="Concept" minOccurs="0"/>
+								<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_7"
+									type="Concept" minOccurs="0"/>
+							</xs:choice>
+						</xs:sequence>
+						<xs:attribute name="TYPE" use="optional" type="type"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded" minOccurs="1">
+				<xs:choice>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_1"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_2"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_3"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_4"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_5"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_6"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW_7"
+						type="Concept" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded" minOccurs="1">
+				<xs:choice>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_1"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_2"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_3"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_4"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_5"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_6"
+						type="Concept" minOccurs="0"/>
+					<xs:element name="CASE-LAW_IS_ABOUT_CONCEPT_CASE-LAW_7"
+						type="Concept" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:choice>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE_1" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE_2" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE_3" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE_4" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE_5" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_DIRECTORY-CODE_6" type="Concept"
+						minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_EUROVOC">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:choice>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_EUROVOC_CONCEPT" type="Concept"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_EUROVOC_DOM" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_EUROVOC_MTH" type="Concept"
+						minOccurs="0"/>
+					<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_EUROVOC_TT" type="Concept"
+						minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="TYPE" use="optional" type="type"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="ARTICLE" type="Literal"/>
+	<xs:element name="BASIS_LEGAL" type="Literal"/>
+	<xs:element name="CASE-LAW_AFFAIRE_NUMBER" type="Literal"/>
+	<xs:element name="CASE-LAW_AFFAIRE_YEAR" type="Literal"/>
+	<xs:element name="CASE-LAW_ARTICLE_JOURNAL_RELATED" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL-JUDGEMENT" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_ACT_REFERENCE_EUROPEAN" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_ACT_REFERENCE_NATIONAL" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_DECISION_INTERNAL_IDENTIFIER" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_JUDGEMENT_REFERENCE" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_KEYWORDS" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_PARTIES" type="Literal"/>
+	<xs:element name="CASE-LAW_NATIONAL_REFERENCE_PUBLICATION" type="Literal"/>
+	<xs:element name="CASE-LAW_PUBLISHED_IN_ERECUEIL" type="Literal"/>
+	<xs:element name="CASE-LAW_REEXAMINED_BY_CASE_COURT" type="Literal"/>
+	<xs:element name="CASE-LAW_SUBJECT_TO_APPEAL_IN_CASE_COURT" type="Literal"/>
+	<xs:element name="CONTAINER_CASE-LAW_COURT" type="Literal"/>
+	<xs:element name="CONTAINER_CASE-LAW_FASCICULE" type="Literal"/>
+	<xs:element name="CONTAINER_CASE-LAW_ID_NUMPUB" type="Literal"/>
+	<xs:element name="CONTAINER_CASE-LAW_NUMBER" type="Literal"/>
+	<xs:element name="CONTAINER_CASE-LAW_YEAR_DECISION" type="Literal"/>
+	<xs:element name="COURT-REPORT_NUMBER" type="Literal"/>
+	<xs:element name="COURT_NATIONAL_NAME" type="Literal"/>
+	<xs:element name="DOSSIER_ADOPTED-PROPOSAL" type="Literal"/>
+	<xs:element name="DOSSIER_IDENTIFIER" type="Literal"/>
+	<xs:element name="DOSSIER_NUMBER_REFERENCE" type="Literal"/>
+	<xs:element name="DOSSIER_PENDING-PROPOSAL" type="Literal"/>
+	<xs:element name="DOSSIER_TYPE_REFERENCE" type="Literal"/>
+	<xs:element name="DOSSIER_WITHDRAWN-PROPOSAL" type="Literal"/>
+	<xs:element name="DOSSIER_YEAR_REFERENCE" type="Literal"/>
+	<xs:element name="ECLI" type="Literal"/>
+	<xs:element name="EVENT_LEGAL_DOCUMENT_REFERENCE" type="Literal"/>
+	<xs:element name="EXPRESSION_CASE-LAW_IDENTIFIER_CASE" type="Literal"/>
+	<xs:element name="EXPRESSION_CASE-LAW_PARTIES" type="Literal"/>
+	<xs:element name="EXPRESSION_SUBTITLE" type="Literal"/>
+	<xs:element name="EXPRESSION_TITLE" type="Literal"/>
+	<xs:element name="EXPRESSION_TITLE_ALTERNATIVE" type="Literal"/>
+	<xs:element name="ID_CELEX" type="Literal"/>
+	<xs:element name="ID_LEGISSUM" type="Literal"/>
+	<xs:element name="ID_OBSOLETE_DOCUMENT" type="Literal"/>
+	<xs:element name="ID_SECTOR" type="Literal"/>
+	<xs:element name="LEGAL_EFFECT_PAPER" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_COSTS_DECISIONS" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_ENDORSEMENTS" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_GROUNDS" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_KEYWORDS" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_OPERATIVE_PART" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_OPINION_ADVOCATE-GENERAL" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_PARTIES" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_STAFF_CASE_SUMMARY" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_SUBJECT" type="Literal"/>
+	<xs:element name="MANIFESTATION_CASE-LAW_SUMMARY" type="Literal"/>
+	<xs:element name="MANIFESTATION_COURT-REPORT_PART_PAGE_FIRST" type="Literal"/>
+	<xs:element name="MANIFESTATION_COURT-REPORT_PART_TYPE" type="Literal"/>
+	<xs:element name="MANIFESTATION_COURT-REPORT_PART_YEAR" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIA-JOURNAL_PART_NUMBER_PAGE_DEBATE_EP" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIAL-JOURNAL_PART_AUTHOR_PRINTER" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIAL-JOURNAL_PART_NUMBER_PUBLICATION_DEBATE_EP" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_FIRST" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_LAST" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIAL-JOURNAL_PART_SECTION_OJ" type="Literal"/>
+	<xs:element name="MANIFESTATION_OFFICIAL-JOURNAL_PART_TYPEDOC_PRINTER" type="Literal"/>
+	<xs:element name="MANIFESTATION_SPECIAL-COURT-REPORT_PART_PAGE_FIRST" type="Literal"/>
+	<xs:element name="MANIFESTATION_SPECIAL-COURT-REPORT_PART_TYPE" type="Literal"/>
+	<xs:element name="MANIFESTATION_SPECIAL-COURT-REPORT_PART_YEAR" type="Literal"/>
+	<xs:element name="MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL_PART_PAGE_FIRST" type="Literal"/>
+	<xs:element name="MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL_PART_PAGE_LAST" type="Literal"/>
+	<xs:element name="MANIFESTATION_TYPE" type="Literal"/>
+	<xs:element name="MANIFESTATION_URI" type="Literal"/>
+	<xs:element name="NUMBER_PROCEDURE" type="Literal"/>
+	<xs:element name="OFFICIAL-JOURNAL_CLASS" type="Literal"/>
+	<xs:element name="OFFICIAL-JOURNAL_NUMBER" type="Literal"/>
+	<xs:element name="OFFICIAL-JOURNAL_YEAR" type="Literal"/>
+	<xs:element name="PROCEDURE_CODE_INTERINSTITUTIONAL_NUMBER_PROCEDURE" type="Literal"/>
+	<xs:element name="PROCEDURE_CODE_INTERINSTITUTIONAL_REFERENCE_PROCEDURE" type="Literal"/>
+	<xs:element name="PROCEDURE_CODE_INTERINSTITUTIONAL_YEAR_PROCEDURE" type="Literal"/>
+	<xs:element name="PROCEDURE_NUMBER" type="Literal"/>
+	<xs:element name="PROCEDURE_TYPE" type="Literal"/>
+	<xs:element name="PROCEDURE_YEAR" type="Literal"/>
+	<xs:element name="PUBLISHED" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_COMMENT_INTERNAL" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_ELI" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_ID_LOCAL" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_IN-FORCE" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_INFORMATION_MISCELLANEOUS" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_NUMBER_CORRIGENDUM" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_NUMBER_NATURAL_CELEX" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_POSITION_EESC" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_REPERTOIRE" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_TYPE" type="Literal"/>
+	<xs:element name="RESOURCE_LEGAL_YEAR" type="Literal"/>
+	<xs:element name="SERVICE_ASSOCIATED" type="Literal"/>
+	<xs:element name="SERVICE_RESPONSIBLE" type="Literal"/>
+	<xs:element name="SPECIAL-OFFICIAL-JOURNAL_FIRST_SERIES_HISTORICAL" type="Literal"/>
+	<xs:element name="SPECIAL-OFFICIAL-JOURNAL_SECOND_SERIES_HISTORICAL" type="Literal"/>
+	<xs:element name="SPECIAL-OFFICIAL-JOURNAL_VOLUME" type="Literal"/>
+	<xs:element name="SUMMARY_LEGISLATION_EU_ID_DOC_RELATED" type="Literal"/>
+	<xs:element name="SUMMARY_LEGISLATION_EU_IS_ABOUT_CLASSIFICATION_SUMMARY" type="Literal"/>
+	<xs:element name="SUMMARY_LEGISLATION_EU_OBSOLETE" type="Literal"/>
+	<xs:element name="TERM_PARLIAMENTARY" type="Literal"/>
+	<xs:element name="WORK_TABLE-OF-CONTENTS" type="Literal"/>
+
+	<xs:element name="ACT_CONSOLIDATED_BASED_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="AGREEMENT_INTERNATIONAL_HAS_TYPE_COMMENT_CONCEPT_TYPE_COMMENT" type="Concept"/>
+	<xs:element name="ASKED_BY" type="Concept"/>
+	<xs:element name="BASED_ON" type="Concept"/>
+	<xs:element name="CASE-LAW_AFFECTS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_AMENDS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_COMMENTED_BY_AGENT" type="Concept"/>
+	<xs:element name="CASE-LAW_COMMUNICATED_ON_BY_COMMUNICATION_CJEU" type="Concept"/>
+	<xs:element name="CASE-LAW_CONFIRMS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_CORRECTS_JUDGEMENT_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DECISION_REVIEW_REQUESTED_BY_COMMUNICATION_CASE_NEW" type="Concept"/>
+	<xs:element name="CASE-LAW_DECLARES_INCIDENTALLY_VALID_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DECLARES_VALID_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DECLARES_VOID_BY_PRELIMINARY_RULING_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DECLARES_VOID_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DEFENDED_BY_AGENT" type="Concept"/>
+	<xs:element name="CASE-LAW_DEFERS_APPLICATION_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DELIVERED_BY_ADVOCATE-GENERAL" type="Concept"/>
+	<xs:element name="CASE-LAW_DELIVERED_BY_JUDGE" type="Concept"/>
+	<xs:element name="CASE-LAW_HAS_TYPE_PROCEDURE_CONCEPT_TYPE_PROCEDURE" type="Concept"/>
+	<xs:element name="CASE-LAW_IMMEDIATELY_ENFORCES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_INCIDENTALLY_DECLARES_VOID_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_INTERPRETES_JUDGEMENT_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_INTERPRETES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_NATIONAL_BASED_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_ORIGINATES_IN_COUNTRY" type="Concept"/>
+	<xs:element name="CASE-LAW_PARTIALLY_ANNULS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_REQUESTED_BY_AGENT" type="Concept"/>
+	<xs:element name="CASE-LAW_REQUESTS_ANNULMENT_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_REQUESTS_FOR_FAILURE_TO_FULFILL_AN_OBLIGATION_FOR_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_REQUESTS_INTERPRETATION_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_REQUESTS_OPINION_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_REQUESTS_VALIDATION_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_REVIEWS_JUDGEMENT_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_STATES_FAILURE_CONCERNING_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="CASE-LAW_SUSPENDS_APPLICATION_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COMMUNICATION_CASE_NEW_REQUESTS_ANNULMENT_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COMMUNICATION_CASE_NEW_REQUESTS_ESTABLISHMENT_OF_FAILURE_OF_OBLIGATION_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COMMUNICATION_CASE_NEW_REQUESTS_INAPPLICABILITY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COMMUNICATION_CASE_NEW_REQUESTS_PARTIAL_ANNULMENT_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COMMUNICATION_CASE_NEW_REQUESTS_REVIEW_OF_DECISION_CASE-LAW" type="Concept"/>
+	<xs:element name="COMMUNICATION_CASE_NEW_SUBMITS_PRELIMINARY_QUESTION_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COMMUNICATION_CJEU_COMMUNICATES_ON_CASE-LAW" type="Concept"/>
+	<xs:element name="COMMUNICATION_CJEU_DEFENDED_BY_AGENT" type="Concept"/>
+	<xs:element name="COMMUNICATION_CJEU_HAS_TYPE_PROCEDURE_CONCEPT_TYPE_PROCEDURE" type="Concept"/>
+	<xs:element name="COMMUNICATION_CJEU_REQUESTED_BY_AGENT" type="Concept"/>
+	<xs:element name="COMMUNICATION_REQUEST_OPINION_REQUESTS_OPINION_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="COURT_NATIONAL_HAS_TYPE_CONCEPT_CLASS_COURT_NATIONAL" type="Concept"/>
+	<xs:element name="CREATED_BY" type="Concept"/>
+	<xs:element name="DOSSIER_IS_ABOUT_CONCEPT_TYPE_DOSSIER" type="Concept"/>
+	<xs:element name="DOSSIER_PRODUCES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_ADDRESSES_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_ASSOCIATED_WITH_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_CONSULTS_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_CONTAINS_WORK" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_DRAFTED_BY_PERSON" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_FORMALLY-ADDRESSES_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_GETS_OPINION_OF_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_GETS_REPORT_OF_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_HAS_REMARK_CONCEPT_TYPE_REMARK" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_HAS_TYPE_CONCEPT_TYPE_EVENT_LEGAL" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_HAS_TYPE_CONCEPT_TYPE_EVENT_LEGAL_IDENTIFIER" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_INFORMS_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_INITIATED_BY_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_JOINT-RESPONSIBILITY_OF_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_JOINT-RESPONSIBILITY_OF_PERSON" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_MANDATORILY-CONSULTS_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_ON_AGENDA_CONCEPT_AGENDA_COUNCIL" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_OPTIONALLY-CONSULTS_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_RESPONSIBILITY_OF_INSTITUTION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_RESPONSIBILITY_OF_PERSON" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_USES_CONCEPT_MODE_DECISION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_USES_CONCEPT_TYPE_DECISION" type="Concept"/>
+	<xs:element name="EVENT_LEGAL_WAS_HISTORICALLY_ABOUT_CONCEPT_TYPE_DOSSIER" type="Concept"/>
+	<xs:element name="EXPRESSION_USES_LANGUAGE" type="Concept"/>
+	<xs:element name="MANIFESTATION_PART_OF_MANIFESTATION" type="Concept"/>
+	<xs:element name="MEASURE_NATIONAL_IMPLEMENTING_IMPLEMENTS_DIRECTIVE" type="Concept"/>
+	<xs:element name="OFFICIAL-JOURNAL_PART_OF_COLLECTION_DOCUMENT" type="Concept"/>
+	<xs:element name="OPINION_CJEU_GIVEN_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="PROCEDURE_CODE_INTERINSTITUTIONAL_HAS_TYPE_CONCEPT_TYPE_PROCEDURE_CODE_INTERINSTITUTIONAL" type="Concept"/>
+	<xs:element name="QUESTION_PARLIAMENTARY_ASKED_BY_GROUP_PARLIAMENTARY" type="Concept"/>
+	<xs:element name="REPORTED_BY" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL-PUBLISHED_IN_RECUEIL-SPECIAL-EDITION" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADDED_TO_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADDRESSES_INSTITUTION" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADDRESSES_ORGANIZATION" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADDS_TO_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADOPTED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADOPTS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_AMENDED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_AMENDED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_AMENDMENT_PROPOSED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_AMENDS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ANNULMENT_REQUESTED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ANNULMENT_REQUESTED_BY_COMMUNICATION_CASE_NEW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_APPLICATION_DEFERRED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_APPLICATION_EXTENDED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_APPLICATION_SUSPENDED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_BASED_ON_CONCEPT_TREATY" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_BASED_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_BASIS_FOR_ACT_CONSOLIDATED" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_COMPLETED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_COMPLETES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CONFIRMED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CONFIRMED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CONFIRMS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CONTAINS_COR_OPINION_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CONTAINS_EESC_OPINION_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CONTAINS_EP_OPINION_ON_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CORRECTED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_CORRECTS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_COR_OPINION_CONTAINED_IN_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_DECLARED_VALID_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_DECLARED_VOID_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_DECLARED_VOID_BY_PRELIMINARY_RULING_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_DEFERS_APPLICATION_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_DEROGATED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_DEROGATES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_EESC_OPINION_CONTAINED_IN_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_EP_OPINION_CONTAINED_IN_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ESTABLISHES_FAILURE_TO_FULFILL_OBLIGATION_REQUESTED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ESTABLISHMENT_OF_FAILURE_OF_OBLIGATION_REQUESTED_BY_COMMUNICATION_CASE_NEW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_EXTENDS_APPLICATION_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_EXTENDS_VALIDITY_OF_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_FAILURE_STATED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_IMMEDIATELY_ENFORCED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_IMPLEMENTED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_IMPLEMENTS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_IMPLICITLY_REPEALED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_IMPLICITLY_REPEALS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INAPPLICABILITY_REQUESTED_BY_COMMUNICATION_CASE_NEW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INCIDENTALLY_DECLARED_VALID_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INCIDENTALLY_DECLARED_VOID_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INCORPORATED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INCORPORATES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INTERPRETATION_REQUESTED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INTERPRETED_AUTHORITATIVELY_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INTERPRETED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INTERPRETED_BY_JUDGEMENT_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_INTERPRETES_AUTHORITATIVELY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_JUDGEMENT_CORRECTED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_OPINION_REQUESTED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_OPINION_REQUESTED_BY_COMMUNICATION_REQUEST_OPINION" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_ADOPTED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_ADOPTS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_ANNULLED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_REFERRED_TO_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_REFERS_TO_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_SUSPENDED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIALLY_SUSPENDS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PARTIAL_ANNULMENT_REQUESTED_BY_COMMUNICATION_CASE_NEW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PRELIMINARY_QUESTION-SUBMITTED_BY_COMMUNICATION_CASE_NEW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_PROPOSES_TO_AMEND_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_RECEIVED_OPINION_CJEU" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REESTABLISHED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REESTABLISHES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_RELATED_QUESTION_TO_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_RELATED_TO_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_RENDERED_OBSOLETE_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_RENDERS_OBSOLETE_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REPEALED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REPEALS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REPLACED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REPLACES_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_REVIEWED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_SUSPENDED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_SUSPENDS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_TACKLES_SIMILAR_QUESTION_AS_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_USES_ORIGINALLY_LANGUAGE" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_VALIDATION_REQUESTED_BY_CASE-LAW" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_VALIDITY_EXTENDED_BY_RESOURCE_LEGAL" type="Concept"/>
+	<xs:element name="SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE" type="Concept"/>
+	<xs:element name="STORED_BY" type="Concept"/>
+	<xs:element name="SUMMARY_LEGISLATION_EU_ID_DOC_SUMMARIZED" type="Concept"/>
+	<xs:element name="SUMMARY_LEGISLATION_EU_VALIDATED_BY_INSTITUTION" type="Concept"/>
+	<xs:element name="WORK_CITES_WORK" type="Concept"/>
+	<xs:element name="WORK_CREATED_BY_AGENT" type="Concept"/>
+	<xs:element name="WORK_HAS_RESOURCE-TYPE" type="Concept"/>
+	<xs:element name="WORK_PART_OF_COLLECTION_DOCUMENT" type="Concept"/>
+	<xs:element name="WORK_PART_OF_EVENT_LEGAL" type="Concept"/>
+	<xs:element name="WORK_RELATED_TO_WORK" type="Concept"/>
+	<xs:element name="WORK_SUMMARIZED_BY_SUMMARY" type="Concept"/>
+
+	<xs:element name="ACT_CONSOLIDATED_DATE" type="Date"/>
+	<xs:element name="COOPERATION_POLICE-AND-JUDICIAL_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="DATE_CREATION_LEGACY" type="Date"/>
+	<xs:element name="DATE_DEBATE" type="Date"/>
+	<xs:element name="DATE_NOTIFICATION" type="Date"/>
+	<xs:element name="DATE_PUBLICATION" type="Date"/>
+	<xs:element name="DATE_REPLY" type="Date"/>
+	<xs:element name="DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="DECISION_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="DIRECTIVE_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="EVENT_LEGAL_DATE" type="Date"/>
+	<xs:element name="LASTMODIFICATIONDATE" type="Date"/>
+	<xs:element name="MEASURE_NATIONAL_IMPLEMENTING_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="QUESTION_PARLIAMENTARY_DATE_REPLY" type="Date"/>
+	<xs:element name="RECOMMENDATION_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="RECOMMENDATION_ECSC_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="REGULATION_DATE_TRANSPOSITION" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_DEADLINE" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_DISPATCH" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_END-OF-VALIDITY" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_REQUEST_OPINION" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_SIGNATURE" type="Date"/>
+	<xs:element name="RESOURCE_LEGAL_DATE_VOTE" type="Date"/>
+	<xs:element name="WORK_DATE_DOCUMENT" type="Date"/>
+
+	<xs:element name="AGREEMENT_INTERNATIONAL_ASSOCIATED_TO_RESOURCE_LEGAL" type="Relation"/>
+	<xs:element name="CASE-LAW_DELIVERED_BY_COURT_NATIONAL" type="Relation"/>
+	<xs:element name="DOSSIER_INITIATED_BY_ACT_PREPARATORY" type="Relation"/>
+	<xs:element name="PROCEDURE_CODE_INTERINSTITUTIONAL_BASED_ON_RESOURCE_LEGAL" type="Relation"/>
+	<xs:element name="PROCEDURE_WITHOUT_CODE_INTERINSTITUTIONAL_BASED_ON_RESOURCE_LEGAL" type="Relation"/>
+	<xs:element name="RESOURCE_LEGAL_CONSOLIDATED_BY_ACT_CONSOLIDATED" type="Relation"/>
+	<xs:element name="RESOURCE_LEGAL_PUBLISHED_IN_COURT-REPORT" type="Relation"/>
+	<xs:element name="RESOURCE_LEGAL_PUBLISHED_IN_OFFICIAL-JOURNAL" type="Relation"/>
+	<xs:element name="RESOURCE_LEGAL_PUBLISHED_IN_RECUEIL-JURISPRUDENCE" type="Relation"/>
+	<xs:element name="RESOURCE_LEGAL_PUBLISHED_IN_SPECIAL-OFFICIAL-JOURNAL" type="Relation"/>
+	<xs:element name="SUMMARY_SUMMARIZES_WORK" type="Relation"/>
+	<xs:element name="TYPE" type="Relation"/>
+	<xs:element name="WORK_HAS_EXPRESSION" type="Relation"/>
+	<xs:element name="WORK_PART_OF_DOSSIER" type="Relation"/>
+	<xs:element name="WORK_PART_OF_WORK" type="Relation"/>
+</xs:schema>
