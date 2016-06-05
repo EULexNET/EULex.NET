@@ -23,9 +23,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 
 [assembly: AssemblyTitle ("EULex.NET")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription ("Cross-platform, open source .NET library to retrieve legal data available on the EUR-Lex web site")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
+[assembly: AssemblyCompany ("Bertrand Lorentz")]
 [assembly: AssemblyProduct ("")]
 [assembly: AssemblyCopyright ("Bertrand Lorentz")]
 [assembly: AssemblyTrademark ("")]
