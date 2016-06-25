@@ -39,6 +39,7 @@
     <Compile Include="Document62004TJ0201Test.cs" />
     <Compile Include="Procedure2014_218Test.cs" />
     <Compile Include="TestUtils.cs" />
+    <Compile Include="ResultsListTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
