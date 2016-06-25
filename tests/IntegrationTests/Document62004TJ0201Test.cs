@@ -21,6 +21,7 @@
 
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 using EULex.Model;
@@ -33,9 +34,9 @@ namespace EULex.IntegrationTests
         Notice notice;
 
         [OneTimeSetUp]
-        protected void SetUp ()
+        protected async Task SetUp ()
         {
-            notice = TestUtils.GetSingleNotice ("DN = 62004TJ0201", Language.en);
+            notice = await TestUtils.GetSingleNotice ("DN = 62004TJ0201", Language.en);
         }
 
         [Test]

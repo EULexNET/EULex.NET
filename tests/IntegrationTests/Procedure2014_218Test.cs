@@ -19,7 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+using System;
 using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 using EULex.Model;
@@ -32,9 +34,9 @@ namespace EULex.IntegrationTests
         Notice notice;
 
         [OneTimeSetUp]
-        protected void SetUp ()
+        protected async Task SetUp ()
         {
-            notice = TestUtils.GetSingleNotice ("LP_INTER_CODE_YEAR = 2014 AND LP_INTER_CODE_NUM = 218", Language.en);
+            notice = await TestUtils.GetSingleNotice ("LP_INTER_CODE_YEAR = 2014 AND LP_INTER_CODE_NUM = 218", Language.en);
         }
 
         [Test]

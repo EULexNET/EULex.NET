@@ -21,6 +21,7 @@
 
 using System;
 using System.Configuration;
+using System.Threading.Tasks;
 
 using EULex.EURLexWebService;
 using EULex.Model;
@@ -29,25 +30,38 @@ namespace EULex.IntegrationTests
 {
     public class TestUtils
     {
-        public static Notice GetSingleNotice (string query, Language lang)
+        /// <summary>
+        /// Return a web service client configured with username and password from AppSettings.
+        /// </summary>
+        /// <returns>An instance of web service client. Disposing of the client is the responsibility of the caller.</returns>
+        public static Client GetClient ()
         {
             var username = ConfigurationManager.AppSettings ["username"];
             var password = ConfigurationManager.AppSettings ["password"];
 
-            using (var client = new Client (username, password)) {
+            return new Client (username, password);
+        }
+
+        public static async Task<SearchResults> GetResults (string query, Language lang, int page_size, int page)
+        {
+            using (var client = GetClient ()) {
 
                 var request = new SearchRequest ();
                 request.ExpertQuery = query;
-                request.PageSize = 1;
-                request.Page = 1;
+                request.PageSize = page_size;
+                request.Page = page;
                 request.SearchLanguage = lang;
 
-                var task = client.DoQueryAsync (request);
-                task.Wait ();
-                var response = task.Result;
-
-                return response.Results [0].Content.Notice;
+                var results = await client.DoQueryAsync (request);
+                return results;
             }
+        }
+
+        public static async Task<Notice> GetSingleNotice (string query, Language lang)
+        {
+            var response = await GetResults (query, lang, 1, 1);
+
+            return response.Results [0].Content.Notice;
         }
     }
 }
