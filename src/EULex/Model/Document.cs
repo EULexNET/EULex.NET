@@ -25,6 +25,9 @@ using System.Xml.Serialization;
 
 namespace EULex.Model
 {
+    /// <summary>
+    /// Provides a representation of data associated with a single search result.
+    /// </summary>
     [XmlType (Namespace="http://eur-lex.europa.eu/search")]
     public partial class Document
     {
@@ -35,6 +38,9 @@ namespace EULex.Model
         public Collection<ContentUrl> ContentUrls { get; set; }
     }
 
+    /// <summary>
+    /// Represents the URL of one piece of content.
+    /// </summary>
     [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
     public partial class ContentUrl
     {

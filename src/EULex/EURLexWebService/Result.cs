@@ -27,6 +27,9 @@ using EULex.Model;
 
 namespace EULex.EURLexWebService
 {
+    /// <summary>
+    /// Represents a link to a document.
+    /// </summary>
     [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
     public partial class DocumentLink
     {

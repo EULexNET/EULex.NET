@@ -35,6 +35,9 @@ namespace EULex.Model
         branch,
     }
 
+    /// <summary>
+    /// Provides a representation for the metadata associated with one result item.
+    /// </summary>
     [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
     public partial class Notice
     {
