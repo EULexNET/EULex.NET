@@ -28,20 +28,25 @@ using EULex.Model;
 namespace EULex.EURLexWebService
 {
     /// <summary>
-    /// Represents a link to a document.
+    /// Represents a link to a document file on EUR-Lex.
     /// </summary>
+    /// <description>
+    /// This is the link to a content file that is positionned on a document icon on EUR-Lex
+    /// </description>
     [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
     public partial class DocumentLink
     {
-        public DocumentLink ()
-        {
-            this.Type = "required";
-        }
-
+        /// <summary>
+        /// Gets or sets the type of the document link.
+        /// </summary>
+        /// <value>The type of the link: "html" or "pdf", or "doc".</value>
         [XmlAttribute ("type")]
-        [System.ComponentModel.DefaultValue ("required")]
         public string Type { get; set; }
 
+        /// <summary>
+        /// Gets or sets the URL of the link.
+        /// </summary>
+        /// <value>The URL of the link.</value>
         [XmlText ()]
         public string Value { get; set; }
     }
@@ -68,9 +73,12 @@ namespace EULex.EURLexWebService
         public int Rank { get; set; }
 
         /// <summary>
-        /// Gets or sets the document links.
+        /// Gets or sets the links to the document files on EUR-Lex.
         /// </summary>
-        /// <value>The document links.</value>
+        /// <value>The links to the document files on EUR-Lex.</value>
+        /// <description>
+        /// Links are only provided if the MANIFESTATION_ID fields was requested in the expert query.
+        /// </description>
         [XmlElement ("document_link")]
         public Collection<DocumentLink> DocumentLinks { get; set; }
 
