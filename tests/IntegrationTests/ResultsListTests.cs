@@ -61,6 +61,10 @@ namespace EULex.IntegrationTests
             Expect (response.NumHits, EqualTo (page_size));
             Expect (response.Results.Count, EqualTo (page_size));
 
+            for (int i = 0; i < page_size; i++) {
+                Expect (response.Results [i].Rank, EqualTo (i + 1));
+            }
+
             Expect (response.Results [page_size - 1].Content.Notice.Work, Not.Null);
         }
 
