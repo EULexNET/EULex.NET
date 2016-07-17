@@ -64,14 +64,14 @@ namespace EULex.EURLexWebService
         /// Gets or sets the rank of the result in the result list.
         /// </summary>
         /// <value>The rank of the result.</value>
-        [XmlElement (DataType="int")]
+        [XmlElement ("rank", DataType="int")]
         public int Rank { get; set; }
 
         /// <summary>
         /// Gets or sets the document links.
         /// </summary>
         /// <value>The document links.</value>
-        [XmlElement ("document-link")]
+        [XmlElement ("document_link")]
         public Collection<DocumentLink> DocumentLinks { get; set; }
 
         /// <summary>
