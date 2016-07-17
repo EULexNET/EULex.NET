@@ -90,7 +90,7 @@ namespace EULex.IntegrationTests
         }
 
         [Test]
-        public void Check ()
+        public void CheckProcedureReference ()
         {
             var v = notice.Dossier.ProcedureReference.Value;
             Expect (v, EqualTo ("2014/0218/COD"));
