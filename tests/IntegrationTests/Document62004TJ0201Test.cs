@@ -54,16 +54,6 @@ namespace EULex.IntegrationTests
         }
 
         [Test]
-        public void CheckCaseLawCommentedBy ()
-        {
-            var v = notice.Work.CaseLawCommentedBy [0];
-            Expect (v.Identifier, EqualTo ("OP_DATPRO"));
-            Expect (v.Annotations [0].BuildInfo, StartsWith ("cdm:"));
-            Expect (v.Annotations [0].ErrorMessage [0], StartsWith ("Data"));
-            Expect (v.Annotations [0].QualityIssue [0], EqualTo ("DATWRO"));
-        }
-
-        [Test]
         public void CheckCaseLawDefendedBy ()
         {
             var v = notice.Work.CaseLawDefendedBy;
@@ -89,13 +79,6 @@ namespace EULex.IntegrationTests
         }
 
         [Test]
-        public void CheckCaseLawOriginatesInCountry ()
-        {
-            var v = notice.Work.CaseLawOriginatesInCountry;
-            Expect (v.Any (e => e.Identifier == "USA"));
-        }
-
-        [Test]
         public void CheckCaseLawRequestedBy ()
         {
             var v = notice.Work.CaseLawRequestedBy;
@@ -117,13 +100,6 @@ namespace EULex.IntegrationTests
         }
 
         [Test]
-        public void CheckObsoleteId ()
-        {
-            var v = notice.Work.ObsoleteId [0].Value;
-            Expect (v, EqualTo ("62004A0201"));
-        }
-
-        [Test]
         public void CheckSector ()
         {
             var v = notice.Work.Sector.Value;
@@ -135,13 +111,6 @@ namespace EULex.IntegrationTests
         {
             var v = notice.Work.BasedOnTreaties [0].Identifier;
             Expect (v, EqualTo ("TEEC_1957"));
-        }
-
-        [Test]
-        public void CheckInternalComments ()
-        {
-            var v = notice.Work.InternalComments [0].Value;
-            Expect (v, EqualTo ("200709T0065"));
         }
 
         [Test]
@@ -208,13 +177,6 @@ namespace EULex.IntegrationTests
         {
             var v = notice.Work.ResourceType [0].Identifier;
             Expect (v, EqualTo ("JUDG"));
-        }
-
-        [Test]
-        public void CheckPartOfCollection ()
-        {
-            var v = notice.Work.PartOfCollection;
-            Expect (v.Any (e => e.Identifier == "CELEX"));
         }
 
         [Test]
