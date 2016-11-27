@@ -86,6 +86,8 @@ namespace EULex.EURLexWebService
         /// Gets or sets the list of warnings.
         /// </summary>
         /// <value>The list of warnings.</value>
+        /// <remarks>A warning can indicate that there was a problem during the search.
+        /// For example: "The query was cut short because it took longer than the specified duration".</remarks>
         [XmlElement ("warning")]
         public Collection<Warning> Warnings { get; set; }
     }
