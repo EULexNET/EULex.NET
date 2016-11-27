@@ -27,7 +27,7 @@
 					<xs:element name="EXPRESSION" type="expressionType" minOccurs="0" maxOccurs="unbounded" />
 					<xs:element name="INVERSE" type="inverseType" minOccurs="0"/>
 					<xs:element name="MANIFESTATION" type ="manifestationType" minOccurs="0" />
-					<xs:element name="WORK" type="workType"/>
+					<xs:element name="WORK" type="workType" minOccurs="0" />
 				</xs:sequence>
 				<xs:sequence maxOccurs="unbounded">
 					<xs:element name="DOSSIER" type="dossierType"/>	

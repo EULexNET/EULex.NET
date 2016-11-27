@@ -46,7 +46,7 @@
 				type="xs:string" />
 			<xs:element name="rank" minOccurs="1" maxOccurs="1"
 				type="xs:integer" />
-			<xs:element name="document-link" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="document_link" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
