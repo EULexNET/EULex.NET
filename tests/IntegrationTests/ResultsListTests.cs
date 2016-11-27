@@ -65,7 +65,7 @@ namespace EULex.IntegrationTests
                 Expect (response.Results [i].Rank, EqualTo (i + 1));
             }
 
-            Expect (response.Results [page_size - 1].Content.Notice.Work, Not.Null);
+            Expect (response.Results [page_size - 1].Content.Notice, Not.Null);
         }
 
         [Test]
@@ -88,7 +88,7 @@ namespace EULex.IntegrationTests
             Expect (response.NumHits, EqualTo (last_count));
             Expect (response.Results.Count, EqualTo (last_count));
 
-            Expect (response.Results [last_count - 1].Content.Notice.Work, Not.Null);
+            Expect (response.Results [last_count - 1].Content.Notice, Not.Null);
         }
 
     }
