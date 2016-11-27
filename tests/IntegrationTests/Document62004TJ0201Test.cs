@@ -50,7 +50,7 @@ namespace EULex.IntegrationTests
         {
             var v = notice.Work.CaseLawRelatedArticles;
             Expect (v.Count, GreaterThanOrEqualTo (54));
-            Expect (v.Any (e => e.Value.StartsWith ("López Miño, Antonio")));
+            Expect (v.Any (e => e.Value.IndexOf ("López Miño, Antonio") > 0));
         }
 
         [Test]

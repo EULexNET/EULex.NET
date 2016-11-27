@@ -85,8 +85,8 @@ namespace EULex.IntegrationTests
         [Test]
         public void CheckProducesWorks ()
         {
-            var v = notice.Dossier.ProducesWorks [0].SameAs [0].Identifier;
-            Expect (v, EqualTo ("32015L0413"));
+            var v = notice.Dossier.ProducesWorks [0].SameAs;
+            Expect (v.Any (e => e.Identifier == "32015L0413"));
         }
 
         [Test]
