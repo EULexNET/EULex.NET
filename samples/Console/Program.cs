@@ -44,7 +44,7 @@ namespace ConsoleSample
             using (var client = new Client (username, password)) {
 
                 var request = new SearchRequest {
-                    ExpertQuery = "TI ~ privacy",
+                    ExpertQuery = "SELECT DN, AU, TI_DISPLAY, MANIFESTATION_ID WHERE TI ~ privacy",
                     SearchLanguage = Language.en,
                     PageSize = 10,
                     Page = 1
@@ -63,6 +63,9 @@ namespace ConsoleSample
                 Console.WriteLine ("CELEX : " + celex);
                 Console.WriteLine ("Author : " + author);
                 Console.WriteLine ("Title : " + title);
+                foreach (DocumentLink link in response.Results[0].DocumentLinks) {
+                    Console.WriteLine ("Link : " + link.Type + " " + link.Value);
+                }
                 Console.ReadKey ();
             }
         }
