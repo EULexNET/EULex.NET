@@ -1,87 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{B60BB428-3A29-4312-B98B-E2585B7446E2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>EULex</RootNamespace>
-    <AssemblyName>EULex</AssemblyName>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <FileVersion>0.2.0.0</FileVersion>
+    <PackageId>EULex.NET</PackageId>
+    <Description>Cross-platform, open source .NET library to retrieve legal data available on the EUR-Lex web site</Description>
+    <Version>0.2.0</Version>
+    <Authors>Bertrand Lorentz</Authors>
+    <Company />
+    <Product>EULex.NET</Product>
+    <Copyright>Bertrand Lorentz</Copyright>
+    <PackageLicenseUrl>https://github.com/EULexNET/EULex.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://eulex.net</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="EURLexWebService\SearchResults.cs" />
-    <Compile Include="EURLexWebService\SearchRequest.cs" />
-    <Compile Include="EURLexWebService\Result.cs" />
-    <Compile Include="EURLexWebService\Client.cs" />
-    <Compile Include="Model\Annotation.cs" />
-    <Compile Include="Model\CaseLawDirectoryClassification.cs" />
-    <Compile Include="Model\CaseLawDirectoryCode.cs" />
-    <Compile Include="Model\Concept.cs" />
-    <Compile Include="Model\Date.cs" />
-    <Compile Include="Model\DirectoryCode.cs" />
-    <Compile Include="Model\Document.cs" />
-    <Compile Include="Model\Dossier.cs" />
-    <Compile Include="Model\EmbeddedAgent.cs" />
-    <Compile Include="Model\EmbeddedDossier.cs" />
-    <Compile Include="Model\EmbeddedExpression.cs" />
-    <Compile Include="Model\EmbeddedManifestation.cs" />
-    <Compile Include="Model\EmbeddedNotice.cs" />
-    <Compile Include="Model\EmbeddedWork.cs" />
-    <Compile Include="Model\Eurovoc.cs" />
-    <Compile Include="Model\Event.cs" />
-    <Compile Include="Model\Expression.cs" />
-    <Compile Include="Model\Inverse.cs" />
-    <Compile Include="Model\Language.cs" />
-    <Compile Include="Model\Literal.cs" />
-    <Compile Include="Model\Manifestation.cs" />
-    <Compile Include="Model\ManifestationItem.cs" />
-    <Compile Include="Model\NewCaseLawDirectoryCode.cs" />
-    <Compile Include="Model\Notice.cs" />
-    <Compile Include="Model\Relation.cs" />
-    <Compile Include="Model\SubjectMatter.cs" />
-    <Compile Include="Model\Uri.cs" />
-    <Compile Include="Model\Work.cs" />
-    <Compile Include="SimpleSOAPClient\Constant.cs" />
-    <Compile Include="SimpleSOAPClient\FaultException.cs" />
-    <Compile Include="SimpleSOAPClient\SoapClient.cs" />
-    <Compile Include="SimpleSOAPClient\Helpers\EnvelopeHelpers.cs" />
-    <Compile Include="SimpleSOAPClient\Helpers\XmlHelpers.cs" />
-    <Compile Include="SimpleSOAPClient\Models\SoapEnvelope.cs" />
-    <Compile Include="SimpleSOAPClient\Models\SoapEnvelopeBody.cs" />
-    <Compile Include="SimpleSOAPClient\Models\SoapEnvelopeHeader.cs" />
-    <Compile Include="SimpleSOAPClient\Models\SoapFault.cs" />
-    <Compile Include="SimpleSOAPClient\Models\SoapHeader.cs" />
-    <Compile Include="SimpleSOAPClient\Models\Headers\KnownHeader.cs" />
-    <Compile Include="SimpleSOAPClient\Models\Headers\UsernameTokenAndPasswordTextSoapHeader.cs" />
-    <Compile Include="SimpleSOAPClient\Models\Headers\UsernameTokenPasswordText.cs" />
-    <Compile Include="SimpleSOAPClient\Models\Headers\UsernameTokenWithPasswordText.cs" />
-    <Compile Include="AssemblyInfo.cs" />
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="EURLexWebService\" />
-    <Folder Include="Model\" />
-    <Folder Include="Properties\" />
-  </ItemGroup>
+
 </Project>

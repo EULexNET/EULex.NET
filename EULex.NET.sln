@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EULex", "src\EULex\EULex.csproj", "{B60BB428-3A29-4312-B98B-E2585B7446E2}"
-EndProject
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A9132F1B-4E01-4766-B7B9-882AC92F1949}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "samples\Console\Console.csproj", "{0061CDA6-5C41-47BF-8EF2-B304B78640C4}"
@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6630A93F-441D-47DA-914C-4EE747C01D62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EULex.IntegrationTests", "tests\IntegrationTests\EULex.IntegrationTests.csproj", "{9CAB521E-045A-4EED-8D2A-02F845127F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EULex", "src\EULex\EULex.csproj", "{6E470DCD-74CF-4156-9A62-3B749A764964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,21 +27,27 @@ Global
 		{9CAB521E-045A-4EED-8D2A-02F845127F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CAB521E-045A-4EED-8D2A-02F845127F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CAB521E-045A-4EED-8D2A-02F845127F69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B60BB428-3A29-4312-B98B-E2585B7446E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B60BB428-3A29-4312-B98B-E2585B7446E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B60BB428-3A29-4312-B98B-E2585B7446E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B60BB428-3A29-4312-B98B-E2585B7446E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E470DCD-74CF-4156-9A62-3B749A764964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E470DCD-74CF-4156-9A62-3B749A764964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E470DCD-74CF-4156-9A62-3B749A764964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E470DCD-74CF-4156-9A62-3B749A764964}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0061CDA6-5C41-47BF-8EF2-B304B78640C4} = {A9132F1B-4E01-4766-B7B9-882AC92F1949}
 		{9CAB521E-045A-4EED-8D2A-02F845127F69} = {6630A93F-441D-47DA-914C-4EE747C01D62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2D17F3F-2E4D-43D2-A456-53A643B5472B}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
 		$1.ResourceNamePolicy = FileFormatDefault
-		$0.TextStylePolicy = $2
+		$0.TextStylePolicy = $8
 		$2.inheritsSet = null
 		$2.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $3
@@ -47,7 +55,6 @@ Global
 		$3.inheritsSet = Mono
 		$3.inheritsScope = text/x-csharp
 		$3.scope = text/x-csharp
-		$0.TextStylePolicy = $4
 		$4.FileWidth = 120
 		$4.inheritsSet = VisualStudio
 		$4.inheritsScope = text/plain
@@ -55,16 +62,13 @@ Global
 		$0.StandardHeader = $5
 		$5.Text = @\nCopyright (c) ${Year} ${CopyrightHolder}\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.
 		$5.IncludeInNewFiles = True
-		$0.TextStylePolicy = $6
 		$6.inheritsSet = null
 		$6.scope = application/config+xml
-		$0.XmlFormattingPolicy = $7
+		$0.XmlFormattingPolicy = $9
 		$7.inheritsSet = null
 		$7.scope = application/config+xml
-		$0.TextStylePolicy = $8
 		$8.inheritsSet = null
 		$8.scope = application/xml
-		$0.XmlFormattingPolicy = $9
 		$9.inheritsSet = Mono
 		$9.inheritsScope = application/xml
 		$9.scope = application/xml

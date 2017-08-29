@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\EULex\EULex.csproj">
-      <Project>{B60BB428-3A29-4312-B98B-E2585B7446E2}</Project>
+      <Project>{6e470dcd-74cf-4156-9a62-3b749a764964}</Project>
       <Name>EULex</Name>
     </ProjectReference>
   </ItemGroup>
