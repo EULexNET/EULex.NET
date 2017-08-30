@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.1</TargetFramework>
     <AssemblyVersion>0.2.0.0</AssemblyVersion>
     <FileVersion>0.2.0.0</FileVersion>
-    <PackageId>EULex.NET</PackageId>
+    <PackageId>EULex</PackageId>
     <Description>Cross-platform, open source .NET library to retrieve legal data available on the EUR-Lex web site</Description>
     <Version>0.2.0</Version>
     <Authors>Bertrand Lorentz</Authors>
@@ -15,6 +15,8 @@
     <PackageProjectUrl>http://eulex.net</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>EUR-Lex</PackageTags>
+    <PackageIconUrl>http://eulex.net/images/eulex-icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/EULexNET/EULex.NET</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
