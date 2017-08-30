@@ -13,6 +13,8 @@
     <Copyright>Bertrand Lorentz</Copyright>
     <PackageLicenseUrl>https://github.com/EULexNET/EULex.NET/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>http://eulex.net</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>EUR-Lex</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
