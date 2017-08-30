@@ -29,7 +29,7 @@ using EULex.Model;
 namespace EULex.IntegrationTests
 {
     [TestFixture]
-    public class ResultsListTests : AssertionHelper
+    public class ResultsListTests
     {
         Client client;
         SearchRequest search_request;
@@ -55,17 +55,17 @@ namespace EULex.IntegrationTests
 
             var result_count = response.TotalHits;
 
-            Expect (result_count, GreaterThan (page_size));
-            Expect (response.Page, EqualTo (1));
-            Expect (response.Language, EqualTo (Language.en));
-            Expect (response.NumHits, EqualTo (page_size));
-            Expect (response.Results.Count, EqualTo (page_size));
+            Assert.That (result_count, Is.GreaterThan (page_size));
+            Assert.That (response.Page, Is.EqualTo (1));
+            Assert.That (response.Language, Is.EqualTo (Language.en));
+            Assert.That (response.NumHits, Is.EqualTo (page_size));
+            Assert.That (response.Results.Count, Is.EqualTo (page_size));
 
             for (int i = 0; i < page_size; i++) {
-                Expect (response.Results [i].Rank, EqualTo (i + 1));
+                Assert.That (response.Results [i].Rank, Is.EqualTo (i + 1));
             }
 
-            Expect (response.Results [page_size - 1].Content.Notice, Not.Null);
+            Assert.That (response.Results [page_size - 1].Content.Notice, Is.Not.Null);
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace EULex.IntegrationTests
 
             var result_count = response.TotalHits;
 
-            Expect (response.Page, EqualTo (2));
+            Assert.That (response.Page, Is.EqualTo (2));
 
             int last_page = (result_count / page_size) + 1;
             int last_count = result_count % page_size;
@@ -84,11 +84,11 @@ namespace EULex.IntegrationTests
             search_request.Page = last_page;
             response = await client.DoQueryAsync (search_request);
 
-            Expect (response.Page, EqualTo (last_page));
-            Expect (response.NumHits, EqualTo (last_count));
-            Expect (response.Results.Count, EqualTo (last_count));
+            Assert.That (response.Page, Is.EqualTo (last_page));
+            Assert.That (response.NumHits, Is.EqualTo (last_count));
+            Assert.That (response.Results.Count, Is.EqualTo (last_count));
 
-            Expect (response.Results [last_count - 1].Content.Notice, Not.Null);
+            Assert.That (response.Results [last_count - 1].Content.Notice, Is.Not.Null);
         }
 
     }

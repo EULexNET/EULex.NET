@@ -29,7 +29,7 @@ using EULex.Model;
 namespace EULex.IntegrationTests
 {
     [TestFixture]
-    public class Procedure2014_218Test : AssertionHelper
+    public class Procedure2014_218Test
     {
         Notice notice;
 
@@ -42,58 +42,58 @@ namespace EULex.IntegrationTests
         [Test]
         public void HasWork ()
         {
-            Expect (notice.Dossier, Not.Null);
+            Assert.That (notice.Dossier, Is.Not.Null);
         }
 
         [Test]
         public void CheckLegalBasis ()
         {
             var v = notice.Dossier.LegalBasis [0].Value;
-            Expect (v, EqualTo ("TFUE/art 91 par 1 pt c"));
+            Assert.That (v, Is.EqualTo ("TFUE/art 91 par 1 pt c"));
         }
 
         [Test]
         public void CheckInitiatedByPreparatoryAct ()
         {
             var v = notice.Dossier.InitiatedByPreparatoryAct [0];
-            Expect (v.SameAs.Any (e => e.Uri.Identifier == "52014PC0476"));
-            Expect (v.EmbeddedNotice.Work.Eurovoc.Any (e => e.Concept.Identifier == "4047"));
-            Expect (v.EmbeddedNotice.Expression.Title.Value, StartsWith ("Proposal for a DIRECTIVE"));
+            Assert.That (v.SameAs.Any (e => e.Uri.Identifier == "52014PC0476"));
+            Assert.That (v.EmbeddedNotice.Work.Eurovoc.Any (e => e.Concept.Identifier == "4047"));
+            Assert.That (v.EmbeddedNotice.Expression.Title.Value, Does.StartWith ("Proposal for a DIRECTIVE"));
         }
 
         [Test]
         public void CheckReferenceNumber ()
         {
             var v = notice.Dossier.ReferenceNumber.Value;
-            Expect (v, EqualTo ("476"));
+            Assert.That (v, Is.EqualTo ("476"));
         }
 
         [Test]
         public void CheckReferenceType ()
         {
             var v = notice.Dossier.ReferenceType.Value;
-            Expect (v, EqualTo ("COM"));
+            Assert.That (v, Is.EqualTo ("COM"));
         }
 
         [Test]
         public void CheckReferenceYear ()
         {
             var v = notice.Dossier.ReferenceYear.Value;
-            Expect (v, EqualTo ("2014"));
+            Assert.That (v, Is.EqualTo ("2014"));
         }
 
         [Test]
         public void CheckProducesWorks ()
         {
             var v = notice.Dossier.ProducesWorks [0].SameAs;
-            Expect (v.Any (e => e.Identifier == "32015L0413"));
+            Assert.That (v.Any (e => e.Identifier == "32015L0413"));
         }
 
         [Test]
         public void CheckProcedureReference ()
         {
             var v = notice.Dossier.ProcedureReference.Value;
-            Expect (v, EqualTo ("2014/0218/COD"));
+            Assert.That (v, Is.EqualTo ("2014/0218/COD"));
         }
     }
 }
