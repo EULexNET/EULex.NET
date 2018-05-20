@@ -62,16 +62,7 @@ namespace EULex.EURLexWebService
         /// as a web service user.</param>
         public Client (string server_url, string username, string password)
         {
-            soap_client = new SoapClient {
-                RequestRawHandler = (url, xml) => {
-                    System.Diagnostics.Debug.WriteLine ("SOAP Outbound Request -> {0} \n {1}", url, xml);
-                    return xml;
-                },
-                ResponseRawHandler = (url, xml) => {
-                    System.Diagnostics.Debug.WriteLine ("SOAP Outbound Response -> {0} \n {1}", url, xml);
-                    return xml;
-                }
-            };
+			soap_client = new SoapClient ();
 
             this.server_url = server_url;
             this.username = username;
@@ -106,11 +97,28 @@ namespace EULex.EURLexWebService
         }
 
         /// <summary>
-        /// Sends a search request as an asynchronous operation.
+        /// Handler that can access and manipulate the generated XML string before sending it to the server.
         /// </summary>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        /// <param name="search_request">The search request sent to the web service.</param>
-        public async Task<SearchResults> DoQueryAsync (SearchRequest search_request)
+        public Func<string, string, string> RawRequestHandler {
+            get => soap_client.RequestRawHandler;
+            set => soap_client.RequestRawHandler = value;
+        }
+
+        /// <summary>
+        /// Handler that can access and manipulate the returned XML string before deserialization.
+        /// </summary>
+        public Func<string, string, string> RawResponseHandler {
+            get => soap_client.ResponseRawHandler;
+            set => soap_client.ResponseRawHandler = value;
+        }
+
+
+		/// <summary>
+		/// Sends a search request as an asynchronous operation.
+		/// </summary>
+		/// <returns>The task object representing the asynchronous operation.</returns>
+		/// <param name="search_request">The search request sent to the web service.</param>
+		public async Task<SearchResults> DoQueryAsync (SearchRequest search_request)
         {
             var header = KnownHeader.Oasis.Security.UsernameTokenAndPasswordText (username, password);
             var requestEnvelope = SoapEnvelope.Prepare().WithHeaders(header).Body(search_request);
