@@ -35,7 +35,7 @@ namespace EULex.EURLexWebService
     /// </summary>
     public class Client : IDisposable
     {
-        const string default_server_url = "http://eur-lex.europa.eu/EURLexWebService";
+        const string default_server_url = "https://eur-lex.europa.eu/EURLexWebService";
 
         SoapClient soap_client;
         string server_url;
