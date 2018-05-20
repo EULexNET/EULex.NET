@@ -23,7 +23,7 @@
     <types>
 		<xs:schema>
 			<xs:import namespace="http://eur-lex.europa.eu/search"
-				schemaLocation="http://eur-lex.europa.eu/eurlex-ws?xsd=3" />
+				schemaLocation="https://eur-lex.europa.eu/eurlex-ws?xsd=3" />
    		</xs:schema>
 	</types>
 
@@ -52,7 +52,7 @@
 		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"
 			style="document" />
 		<operation name="doQuery">
-			<soap12:operation soapAction="http://eur-lex.europa.eu/EURLexWebService/doQuery" />
+			<soap12:operation soapAction="https://eur-lex.europa.eu/EURLexWebService/doQuery" />
 			<input>
 				<soap12:body use="literal" />
 			</input>
@@ -68,7 +68,7 @@
 	<service name="EURLexWebService">
 		<port name="EURLexWebServicePort" binding="elx:EURLexWebServicePortBinding">
 			<soap12:address
-				location="http://eur-lex.europa.eu/EURLexWebService" />
+				location="https://eur-lex.europa.eu/EURLexWebService" />
 		</port>
 	</service>
 </definitions>

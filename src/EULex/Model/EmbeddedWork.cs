@@ -83,7 +83,7 @@ namespace EULex.Model
         public Literal SpecialOfficialJournalFirstHistoricalSeries { get; set; }
 
         [XmlElement ("SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE")]
-        public Collection<Concept> SpecialOfficialJournalDirectoryCode { get; set; }
+        public Collection<SpecialOfficialJournalDirectoryCode> SpecialOfficialJournalDirectoryCode { get; set; }
 
         [XmlElement ("SPECIAL-OFFICIAL-JOURNAL_SECOND_SERIES_HISTORICAL")]
         public Literal SpecialOfficialJournalSecondHistoricalSeries { get; set; }

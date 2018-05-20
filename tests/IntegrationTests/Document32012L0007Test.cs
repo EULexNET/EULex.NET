@@ -222,6 +222,13 @@ namespace EULex.IntegrationTests
             var n = notice.Work.PublishedInSpecialOfficialJournal [0].EmbeddedNotice;
             Assert.That (n.Work.SpecialOfficialJournalVolume [0].Value, Is.EqualTo ("048"));
         }
+        
+        [Test]
+        public void CheckSpecialOfficialJournalDirectoryCode ()
+        {
+            var n = notice.Work.PublishedInSpecialOfficialJournal [0].EmbeddedNotice;
+            Assert.That (n.Work.SpecialOfficialJournalDirectoryCode [0].Level1.Uri.Identifier, Is.EqualTo ("13"));
+        }
 
         [Test]
         public void CheckRepertoire ()

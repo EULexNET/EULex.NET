@@ -5,7 +5,7 @@
 
 	<xs:complexType name="documentType">
 		<xs:sequence maxOccurs="unbounded">
-			<xs:element ref="NOTICE"/>
+			<xs:element ref="NOTICE" minOccurs="0"/>
 			<xs:element ref="CONTENT_URL" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -751,6 +751,13 @@
 			<xs:attribute name="TYPE" use="optional" type="type"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE">
+		<xs:complexType>
+			<xs:sequence>
+					<xs:element name="SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE_1" type="Concept"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE">
 		<xs:complexType>
 			<xs:sequence maxOccurs="unbounded">
@@ -1160,7 +1167,6 @@
 	<xs:element name="RESOURCE_LEGAL_USES_ORIGINALLY_LANGUAGE" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL_VALIDATION_REQUESTED_BY_CASE-LAW" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL_VALIDITY_EXTENDED_BY_RESOURCE_LEGAL" type="Concept"/>
-	<xs:element name="SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE" type="Concept"/>
 	<xs:element name="STORED_BY" type="Concept"/>
 	<xs:element name="SUMMARY_LEGISLATION_EU_ID_DOC_SUMMARIZED" type="Concept"/>
 	<xs:element name="SUMMARY_LEGISLATION_EU_VALIDATED_BY_INSTITUTION" type="Concept"/>

@@ -616,7 +616,7 @@ namespace EULex.Model
         public Collection<Literal> ResponsibleServices { get; set; }
 
         [XmlElement ("SPECIAL-OFFICIAL-JOURNAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE")]
-        public Collection<Concept> SpecialOfficialJournalDirectoryCode { get; set; }
+        public Collection<SpecialOfficialJournalDirectoryCode> SpecialOfficialJournalDirectoryCode { get; set; }
 
         [XmlElement ("SPECIAL-OFFICIAL-JOURNAL_VOLUME")]
         public Collection<Literal> SpecialOfficialJournalVolume { get; set; }

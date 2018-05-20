@@ -3,8 +3,8 @@
 	targetNamespace="http://eur-lex.europa.eu/search" xmlns="http://eur-lex.europa.eu/search"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
-	<xs:include schemaLocation="http://eur-lex.europa.eu/eurlex-ws?xsd=1"></xs:include>
-	<xs:include schemaLocation="http://eur-lex.europa.eu/eurlex-ws?xsd=2"></xs:include>
+	<xs:include schemaLocation="https://eur-lex.europa.eu/eurlex-ws?xsd=1"></xs:include>
+	<xs:include schemaLocation="https://eur-lex.europa.eu/eurlex-ws?xsd=2"></xs:include>
 
 	<xs:element name="Fault" nillable="true" type="faultBean" />
 
@@ -36,7 +36,7 @@
 				<xs:element name="language" maxOccurs="1"
 					type="searchLanguageType" />
 				<xs:element name="result" type="resultType" maxOccurs="unbounded"/>
-				<xs:element name="warning" type="resultWarning" maxOccurs="unbounded"/>
+				<xs:element name="warning" type="resultWarning" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
