@@ -20,8 +20,10 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-# Visual Studio 2015 cache/options directory
+# Visual Studio cache/options directory
 .vs/
+# VS Code
+.vscode/
 
 # NuGet Packages
 *.nupkg
