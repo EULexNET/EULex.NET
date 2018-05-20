@@ -43,6 +43,11 @@ namespace ConsoleSample
 
             using (var client = new Client (username, password)) {
 
+                client.RawResponseHandler = (url, xml) => {
+                    Console.WriteLine ("SOAP response from {0}:\n{1}", url, xml);
+                    return xml;
+                };
+
                 var request = new SearchRequest {
                     ExpertQuery = "SELECT DN, AU, TI_DISPLAY, MANIFESTATION_ID WHERE TI ~ privacy",
                     SearchLanguage = Language.en,
