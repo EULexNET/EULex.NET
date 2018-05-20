@@ -36,6 +36,7 @@ namespace EULex.EURLexWebService
     public class Client : IDisposable
     {
         const string default_server_url = "https://eur-lex.europa.eu/EURLexWebService";
+        const string default_user_agent = "EULex.NET";
 
         SoapClient soap_client;
         string server_url;
@@ -62,7 +63,8 @@ namespace EULex.EURLexWebService
         /// as a web service user.</param>
         public Client (string server_url, string username, string password)
         {
-			soap_client = new SoapClient ();
+            soap_client = new SoapClient ();
+            soap_client.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd (default_user_agent);
 
             this.server_url = server_url;
             this.username = username;
@@ -93,6 +95,20 @@ namespace EULex.EURLexWebService
         {
             if (disposing) {
                 soap_client.Dispose ();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the User-Agent HTTP header that will be sent with each request.
+        /// The default value is "EULex.NET".
+        /// </summary>
+        public string UserAgent {
+            get {
+                return soap_client.HttpClient.DefaultRequestHeaders.UserAgent.ToString();
+            }
+            set {
+                soap_client.HttpClient.DefaultRequestHeaders.UserAgent.Clear();
+                soap_client.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd(value);
             }
         }
 
