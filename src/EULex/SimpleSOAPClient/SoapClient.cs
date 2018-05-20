@@ -37,7 +37,7 @@ namespace EULex.SimpleSOAPClient
     public class SoapClient : IDisposable
     {
         /// <summary>
-        /// The used HTTP client
+        /// The HTTP client used for the requests
         /// </summary>
         public HttpClient HttpClient { get; }
 
