@@ -49,10 +49,11 @@
       }
     ],
     "dest": "_site",
-    "globalMetadataFiles": [],
+    "globalMetadataFiles": ["global.json"],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "templates/eulex"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
