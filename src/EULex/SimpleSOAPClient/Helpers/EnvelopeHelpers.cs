@@ -32,7 +32,7 @@ namespace EULex.SimpleSOAPClient.Helpers
     /// <summary>
     /// Helper methods for working with <see cref="SoapEnvelope"/> instances.
     /// </summary>
-    public static class EnvelopeHelpers
+    internal static class EnvelopeHelpers
     {
         private static readonly XName SoapFaultXName =
             XName.Get("Fault", Constant.Namespace.SoapSchemasSoapEnvelope);

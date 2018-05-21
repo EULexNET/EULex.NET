@@ -26,12 +26,12 @@ namespace EULex.SimpleSOAPClient
     /// <summary>
     /// Class with some constant values
     /// </summary>
-    public static class Constant
+    internal static class Constant
     {
         /// <summary>
         /// Namespace constants
         /// </summary>
-        public static class Namespace
+        internal static class Namespace
         {
             /// <summary>
             /// The SOAP 1.2 Envelope namespace

@@ -34,7 +34,7 @@ namespace EULex.SimpleSOAPClient
     /// <summary>
     /// The SOAP client that can be used to invoke SOAP Endpoints
     /// </summary>
-    public class SoapClient : IDisposable
+    internal class SoapClient : IDisposable
     {
         /// <summary>
         /// The HTTP client used for the requests

@@ -28,7 +28,7 @@ namespace EULex.SimpleSOAPClient.Models.Headers
     /// <summary>
     /// Class with known <see cref="SoapHeader"/> builder methods.
     /// </summary>
-    public static class KnownHeader
+    internal static class KnownHeader
     {
         /// <summary>
         /// Class with Oasis specific <see cref="SoapHeader"/> builder methods.

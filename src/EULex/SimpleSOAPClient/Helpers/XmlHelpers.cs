@@ -30,7 +30,7 @@ namespace EULex.SimpleSOAPClient.Helpers
     /// <summary>
     /// Helper class with extensions for XML manipulation
     /// </summary>
-    public static class XmlHelpers
+    internal static class XmlHelpers
     {
         private static readonly XmlSerializerNamespaces EmptyXmlSerializerNamespaces;
 
