@@ -134,6 +134,7 @@ namespace EULex.EURLexWebService
 		/// </summary>
 		/// <returns>The task object representing the asynchronous operation.</returns>
 		/// <param name="search_request">The search request sent to the web service.</param>
+        /// <exception cref="FaultException">Thrown if the server returned a fault.</exception>
 		public async Task<SearchResults> DoQueryAsync (SearchRequest search_request)
         {
             var header = KnownHeader.Oasis.Security.UsernameTokenAndPasswordText (username, password);
@@ -141,12 +142,7 @@ namespace EULex.EURLexWebService
 
             var responseEnvelope = await soap_client.SendAsync (server_url, requestEnvelope).ConfigureAwait (false);
 
-            try {
-                return responseEnvelope.Body<SearchResults>();
-            } catch(FaultException e) {
-                System.Diagnostics.Debug.WriteLine ($"The server returned a fault [Code={e.Code}, String={e.String}, Actor={e.Actor}]");
-                throw;
-            }
+            return responseEnvelope.Body<SearchResults>();
         }
     }
 }
