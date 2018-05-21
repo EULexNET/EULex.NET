@@ -39,3 +39,8 @@ bld/
 
 # Config files
 app.config
+
+# DocFX
+docs/api/*.yml
+docs/api/.manifest
+docs/_site
