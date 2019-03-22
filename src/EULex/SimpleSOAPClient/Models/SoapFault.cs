@@ -30,7 +30,7 @@ namespace EULex.SimpleSOAPClient.Models
     /// Represents a SOAP Fault
     /// </summary>
     [XmlRoot ("Fault", Namespace = Constant.Namespace.SoapSchemasSoapEnvelope)]
-    internal class SoapFault
+    public class SoapFault
     {
         /// <summary>
         /// The fault code
