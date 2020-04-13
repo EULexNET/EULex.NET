@@ -1,6 +1,6 @@
 # EULex.NET
 
-EULex.NET is a cross-platform, open source .NET library to retrieve legal data available on the [EUR-Lex](http://eur-lex.europa.eu) web site.
+EULex.NET is a cross-platform, open source .NET library to retrieve legal data available on the [EUR-Lex](https://eur-lex.europa.eu) web site.
 
 ## Usage
 
@@ -26,6 +26,6 @@ EULex.NET is a cross-platform, open source .NET library to retrieve legal data a
 
 The EULex.NET project is not affiliated with or endorsed by the European Commission or the Publications Office of the European Union.
 
-The information on the EUR-Lex web site is subject to a [disclaimer](http://eur-lex.europa.eu/content/legal-notice/legal-notice.html), and a [copyright notice](http://eur-lex.europa.eu/content/legal-notice/legal-notice.html#droits).
+The information on the EUR-Lex web site is subject to a [disclaimer](https://eur-lex.europa.eu/content/legal-notice/legal-notice.html), and a [copyright notice](https://eur-lex.europa.eu/content/legal-notice/legal-notice.html#droits).
 
-If you have questions directly related to the data made available on EUR-Lex, please [contact the EUR-Lex team](http://eur-lex.europa.eu/contact.html)
+If you have questions directly related to the data made available on EUR-Lex, please [contact the EUR-Lex team](https://eur-lex.europa.eu/contact.html)
