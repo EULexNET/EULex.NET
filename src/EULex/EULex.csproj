@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
-    <FileVersion>0.3.0.0</FileVersion>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.4.0.0</FileVersion>
     <PackageId>EULex</PackageId>
     <Description>Cross-platform, open source .NET library to retrieve legal data available on the EUR-Lex web site</Description>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Authors>Bertrand Lorentz</Authors>
     <Company />
     <Product>EULex.NET</Product>
