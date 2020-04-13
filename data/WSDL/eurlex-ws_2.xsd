@@ -151,8 +151,7 @@
 			<xs:element ref="REPORTED_BY" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="RESOURCE_LEGAL-PUBLISHED_IN_RECUEIL-SPECIAL-EDITION" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="RESOURCE_LEGAL_ADDED_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="RESOURCE_LEGAL_ADDRESSES_INSTITUTION" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="RESOURCE_LEGAL_ADDRESSES_ORGANIZATION" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="RESOURCE_LEGAL_ADDRESSES_AGENT" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="RESOURCE_LEGAL_ADDS_TO_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="RESOURCE_LEGAL_ADOPTED_BY_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="RESOURCE_LEGAL_ADOPTS_RESOURCE_LEGAL" minOccurs="0" maxOccurs="unbounded"/>
@@ -1080,8 +1079,7 @@
 	<xs:element name="REPORTED_BY" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL-PUBLISHED_IN_RECUEIL-SPECIAL-EDITION" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL_ADDED_TO_RESOURCE_LEGAL" type="Concept"/>
-	<xs:element name="RESOURCE_LEGAL_ADDRESSES_INSTITUTION" type="Concept"/>
-	<xs:element name="RESOURCE_LEGAL_ADDRESSES_ORGANIZATION" type="Concept"/>
+	<xs:element name="RESOURCE_LEGAL_ADDRESSES_AGENT" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL_ADDS_TO_RESOURCE_LEGAL" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL_ADOPTED_BY_RESOURCE_LEGAL" type="Concept"/>
 	<xs:element name="RESOURCE_LEGAL_ADOPTS_RESOURCE_LEGAL" type="Concept"/>

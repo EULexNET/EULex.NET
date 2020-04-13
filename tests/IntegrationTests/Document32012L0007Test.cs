@@ -46,9 +46,9 @@ namespace EULex.IntegrationTests
         }
 
         [Test]
-        public void CheckAddressesInstitution ()
+        public void CheckAddressesAgent ()
         {
-            var v = notice.Work.AddressesInstitutions [0].Identifier;
+            var v = notice.Work.AddressesAgent [0].Identifier;
             Assert.That (v, Is.EqualTo ("27EM"));
         }
 

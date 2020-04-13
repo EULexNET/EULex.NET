@@ -322,11 +322,8 @@ namespace EULex.Model
         [XmlElement ("RESOURCE_LEGAL_ADDED_TO_RESOURCE_LEGAL")]
         public Collection<Concept> AddedTo { get; set; }
 
-        [XmlElement ("RESOURCE_LEGAL_ADDRESSES_INSTITUTION")]
-        public Collection<Concept> AddressesInstitutions { get; set; }
-
-        [XmlElement ("RESOURCE_LEGAL_ADDRESSES_ORGANIZATION")]
-        public Collection<Concept> AddressesOrganizations { get; set; }
+        [XmlElement ("RESOURCE_LEGAL_ADDRESSES_AGENT")]
+        public Collection<Concept> AddressesAgent { get; set; }
 
         [XmlElement ("RESOURCE_LEGAL_ADDS_TO_RESOURCE_LEGAL")]
         public Collection<Concept> AddsTo { get; set; }
