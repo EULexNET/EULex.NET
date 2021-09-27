@@ -1,4 +1,4 @@
-name: .NET
+name: dotnet test
 
 on:
   workflow_dispatch:
@@ -23,4 +23,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
+      env:
+        EULEX_WEBSERVICE_USERNAME: ${{ secrets.EULEX_WEBSERVICE_USERNAME }}
+        EULEX_WEBSERVICE_PASSWORD: ${{ secrets.EULEX_WEBSERVICE_PASSWORD }}
       run: dotnet test --no-build --verbosity normal
