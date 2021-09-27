@@ -20,7 +20,6 @@
 // THE SOFTWARE.
 
 using System;
-using System.Configuration;
 using System.Threading.Tasks;
 
 using EULex.EURLexWebService;
@@ -31,13 +30,18 @@ namespace EULex.IntegrationTests
     public class TestUtils
     {
         /// <summary>
-        /// Return a web service client configured with username and password from AppSettings.
+        /// Return a web service client configured with username and password from environment variables
+        /// EULEX_WEBSERVICE_USERNAME and EULEX_WEBSERVICE_PASSWORD.
         /// </summary>
         /// <returns>An instance of web service client. Disposing of the client is the responsibility of the caller.</returns>
         public static Client GetClient ()
         {
-            var username = ConfigurationManager.AppSettings ["username"];
-            var password = ConfigurationManager.AppSettings ["password"];
+            var username = Environment.GetEnvironmentVariable ("EULEX_WEBSERVICE_USERNAME");
+            var password = Environment.GetEnvironmentVariable ("EULEX_WEBSERVICE_PASSWORD");
+
+            if (username == null || password == null) {
+                throw new InvalidOperationException("Webservice credentials must be defined in environment variables EULEX_WEBSERVICE_USERNAME and EULEX_WEBSERVICE_PASSWORD.");
+            }
 
             return new Client (username, password);
         }
