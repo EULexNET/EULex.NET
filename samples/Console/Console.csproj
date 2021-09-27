@@ -2,15 +2,11 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
+ <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     <ProjectReference Include="..\..\src\EULex\EULex.csproj" />
   </ItemGroup>
 

@@ -2,14 +2,13 @@
   <PropertyGroup>
     <RootNamespace>EULex.IntegrationTests</RootNamespace>
     <AssemblyName>EULex.IntegrationTests</AssemblyName>
-    <TargetFramework>net45</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.10.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     <ProjectReference Include="..\..\src\EULex\EULex.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Configuration" />
-  </ItemGroup>
+
 </Project>

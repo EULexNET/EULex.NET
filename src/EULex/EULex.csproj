@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AssemblyVersion>0.4.0.0</AssemblyVersion>
     <FileVersion>0.4.0.0</FileVersion>
     <PackageId>EULex</PackageId>
@@ -11,16 +11,17 @@
     <Company />
     <Product>EULex.NET</Product>
     <Copyright>Bertrand Lorentz</Copyright>
-    <PackageLicenseUrl>https://github.com/EULexNET/EULex.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://eulex.net</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>EUR-Lex</PackageTags>
-    <PackageIconUrl>http://eulex.net/images/eulex-icon.png</PackageIconUrl>
+    <PackageIcon>eulex-icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/EULexNET/EULex.NET</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+    <None Include="..\..\data\eulex-icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
