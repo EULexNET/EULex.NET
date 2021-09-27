@@ -78,8 +78,13 @@ namespace EULex.IntegrationTests
 
             Assert.That (response.Page, Is.EqualTo (2));
 
-            int last_page = (result_count / page_size) + 1;
+            int last_page = result_count / page_size;
             int last_count = result_count % page_size;
+            if (last_count == 0) {
+                last_count = page_size;
+            } else {
+                last_page++;
+            }
 
             search_request.Page = last_page;
             response = await client.DoQueryAsync (search_request);
