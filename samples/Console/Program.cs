@@ -71,7 +71,6 @@ namespace ConsoleSample
                 foreach (DocumentLink link in response.Results[0].DocumentLinks) {
                     Console.WriteLine ("Link : " + link.Type + " " + link.Value);
                 }
-                Console.ReadKey ();
             }
         }
     }
