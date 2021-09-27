@@ -46,13 +46,6 @@ namespace EULex.IntegrationTests
         }
 
         [Test]
-        public void CheckAddressesAgent ()
-        {
-            var v = notice.Work.AddressesAgent [0].Identifier;
-            Assert.That (v, Is.EqualTo ("27EM"));
-        }
-
-        [Test]
         public void CheckBasedOn ()
         {
             var v = notice.Work.BasedOn [0].SameAs.First (i => i.Type == "celex").Identifier;
@@ -195,14 +188,6 @@ namespace EULex.IntegrationTests
         {
             var v = notice.Work.MiscellaneousInformation [0].Value;
             Assert.That (v, Does.StartWith ("{P/EEE"));
-        }
-
-        [Test]
-        public void CheckPartOfCollection ()
-        {
-            var v = notice.Work.PartOfCollection;
-            Assert.That (v.Any (e => e.Identifier == "JO"));
-            Assert.That (v.Any (e => e.Identifier == "CELEX"));
         }
 
         [Test]
