@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    environment: Integration Testing
 
     runs-on: ubuntu-latest
 
