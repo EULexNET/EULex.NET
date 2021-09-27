@@ -616,7 +616,10 @@
 	
 	<xs:complexType name="Literal">
 		<xs:choice>
-			<xs:element name="VALUE" minOccurs="0"/>
+			<xs:sequence maxOccurs="2">
+				<xs:element name="VALUE" minOccurs="0"/>
+				<xs:element name="LANG" minOccurs="0"/>
+			</xs:sequence>
 			<xs:element ref="ANNOTATION" minOccurs="0"/>
 		</xs:choice>
 		<xs:attribute name="TYPE" type="type" use="optional" fixed="data"/>

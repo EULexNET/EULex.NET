@@ -76,6 +76,9 @@ namespace EULex.Model
         [XmlElement ("VALUE")]
         public string Value { get; set; }
 
+        [XmlElement ("LANG")]
+        public string Lang { get; set; }
+
         [XmlAttribute ()]
         public XsdType XsdType { get; set; }
     }
