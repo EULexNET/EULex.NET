@@ -20,8 +20,10 @@
 // THE SOFTWARE.
 
 using System;
-using System.Threading;
 using System.Threading.Tasks;
+
+using ComposableAsync;
+using RateLimiter;
 
 using EULex.SimpleSOAPClient;
 using EULex.SimpleSOAPClient.Helpers;
@@ -37,6 +39,10 @@ namespace EULex.EURLexWebService
     {
         const string default_server_url = "https://eur-lex.europa.eu/EURLexWebService";
         const string default_user_agent = "EULex.NET";
+
+        // Minimum delay between each request, as indicated by EUR-Lex team:
+        // "2 consecutive calls to EUR-Lex web service must not be performed within 500 ms"
+        private readonly TimeSpan MINIMUM_DELAY_MS = TimeSpan.FromMilliseconds(500);
 
         SoapClient soap_client;
         string server_url;
@@ -63,7 +69,10 @@ namespace EULex.EURLexWebService
         /// as a web service user.</param>
         public Client (string server_url, string username, string password)
         {
-            soap_client = new SoapClient ();
+
+            TimeLimiter rate_limiter = TimeLimiter.GetFromMaxCountByInterval(1, MINIMUM_DELAY_MS);
+
+            soap_client = new SoapClient (rate_limiter.AsDelegatingHandler());
             soap_client.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd (default_user_agent);
 
             this.server_url = server_url;

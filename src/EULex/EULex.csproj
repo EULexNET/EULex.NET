@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+    <PackageReference Include="RateLimiter" Version="2.2.0" />
     <None Include="..\..\data\eulex-icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
