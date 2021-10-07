@@ -39,16 +39,6 @@ namespace EULex.SimpleSOAPClient
         public string Code { get; set; }
 
         /// <summary>
-        /// The fault string
-        /// </summary>
-        public string String { get; set; }
-
-        /// <summary>
-        /// The fault actor
-        /// </summary>
-        public string Actor { get; set; }
-
-        /// <summary>
         /// The fault detail
         /// </summary>
         public XElement Detail { get; set; }
@@ -57,7 +47,7 @@ namespace EULex.SimpleSOAPClient
         /// Initializes a new instance of <see cref="FaultException"/> with 
         /// a default error message
         /// </summary>
-        public FaultException () : base (DefaultErrorMessage)
+        public FaultException() : base(DefaultErrorMessage)
         { }
 
         /// <summary>
@@ -65,7 +55,7 @@ namespace EULex.SimpleSOAPClient
         /// a specified error message
         /// </summary>
         /// <param name="message">The error message</param>
-        public FaultException (string message) : base (message)
+        public FaultException(string message) : base(message)
         { }
 
         /// <summary>
@@ -74,7 +64,7 @@ namespace EULex.SimpleSOAPClient
         /// </summary>
         /// <param name="message">The error message</param>
         /// <param name="innerException">The inner exception</param>
-        public FaultException (string message, Exception innerException) : base (message, innerException)
+        public FaultException(string message, Exception innerException) : base(message, innerException)
         { }
 
         /// <summary>
@@ -82,7 +72,7 @@ namespace EULex.SimpleSOAPClient
         /// a specified error message and a reference to the inner exception
         /// </summary>
         /// <param name="innerException">The inner exception</param>
-        public FaultException (Exception innerException) : base (DefaultErrorMessage, innerException)
+        public FaultException(Exception innerException) : base(DefaultErrorMessage, innerException)
         { }
     }
 }

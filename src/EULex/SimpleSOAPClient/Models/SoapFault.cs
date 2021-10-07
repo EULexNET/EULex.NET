@@ -23,37 +23,54 @@
 #endregion
 namespace EULex.SimpleSOAPClient.Models
 {
-    using System.Xml.Linq;
+    using System;
     using System.Xml.Serialization;
 
-    /// <summary>
-    /// Represents a SOAP Fault
-    /// </summary>
-    [XmlRoot ("Fault", Namespace = Constant.Namespace.SoapSchemasSoapEnvelope)]
+    [Serializable]
+    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
+    [XmlRoot(Namespace = "http://www.w3.org/2003/05/soap-envelope", IsNullable = false, ElementName = "Fault")]
     public class SoapFault
     {
-        /// <summary>
-        /// The fault code
-        /// </summary>
-        [XmlElement ("faultcode", Namespace = "")]
-        public string Code { get; set; }
+        public FaultCode Code { get; set; }
 
-        /// <summary>
-        /// The fault string
-        /// </summary>
-        [XmlElement ("faultstring", Namespace = "")]
-        public string String { get; set; }
+        public FaultReason Reason { get; set; }
+    }
 
-        /// <summary>
-        /// The fault actor
-        /// </summary>
-        [XmlElement ("faultactor", Namespace = "")]
-        public string Actor { get; set; }
 
-        /// <summary>
-        /// The fault detail
-        /// </summary>
-        [XmlAnyElement ("detail", Namespace = "")]
-        public XElement Detail { get; set; }
+    [Serializable]
+    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
+    public class FaultCode
+    {
+        public string Value { get; set; }
+
+        public FaultCodeSubcode Subcode { get; set; }
+    }
+
+
+    [Serializable]
+    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
+    public class FaultCodeSubcode
+    {
+        public string Value { get; set; }
+    }
+
+
+    [Serializable]
+    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
+    public class FaultReason
+    {
+        public FaultReasonText Text { get; set; }
+    }
+
+
+    [Serializable]
+    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
+    public partial class FaultReasonText
+    {
+        [XmlAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, Namespace = "http://www.w3.org/XML/1998/namespace")]
+        public string lang { get; set; }
+
+        [XmlTextAttribute()]
+        public string Value { get; set; }
     }
 }

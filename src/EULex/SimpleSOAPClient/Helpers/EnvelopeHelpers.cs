@@ -46,12 +46,13 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="body">The <see cref="XElement"/> to set as the body.</param>
         /// <returns>The <see cref="SoapEnvelope"/> after changes.</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapEnvelope Body (this SoapEnvelope envelope, XElement body)
+        public static SoapEnvelope Body(this SoapEnvelope envelope, XElement body)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
+            if (envelope == null) throw new ArgumentNullException(nameof(envelope));
 
-            if (envelope.Body == null) {
-                envelope.Body = new SoapEnvelopeBody ();
+            if (envelope.Body == null)
+            {
+                envelope.Body = new SoapEnvelopeBody();
             }
 
             envelope.Body.Value = body;
@@ -67,9 +68,9 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="body">The entity to set as the body.</param>
         /// <returns>The <see cref="SoapEnvelope"/> after changes.</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapEnvelope Body<T> (this SoapEnvelope envelope, T body)
+        public static SoapEnvelope Body<T>(this SoapEnvelope envelope, T body)
         {
-            return envelope.Body (body.ToXElement ());
+            return envelope.Body(body.ToXElement());
         }
 
         /// <summary>
@@ -80,13 +81,13 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <returns>The deserialized object</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="FaultException">Thrown if the body contains a fault</exception>
-        public static T Body<T> (this SoapEnvelope envelope)
+        public static T Body<T>(this SoapEnvelope envelope)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
+            if (envelope == null) throw new ArgumentNullException(nameof(envelope));
 
-            envelope.ThrowIfFaulted ();
+            envelope.ThrowIfFaulted();
 
-            return envelope.Body.Value.ToObject<T> ();
+            return envelope.Body.Value.ToObject<T>();
         }
 
         #endregion
@@ -101,19 +102,22 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="headers">The <see cref="SoapHeader"/> collection to append</param>
         /// <returns>The <see cref="SoapEnvelope"/> after changes</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapEnvelope WithHeaders (this SoapEnvelope envelope, params XElement[] headers)
+        public static SoapEnvelope WithHeaders(this SoapEnvelope envelope, params XElement[] headers)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
-            if (headers == null) throw new ArgumentNullException (nameof (headers));
+            if (envelope == null) throw new ArgumentNullException(nameof(envelope));
+            if (headers == null) throw new ArgumentNullException(nameof(headers));
 
             if (headers.Length == 0) return envelope;
 
-            if (envelope.Header == null) {
+            if (envelope.Header == null)
+            {
                 envelope.Header = new SoapEnvelopeHeader { Headers = headers };
-            } else {
-                var envelopeHeaders = new List<XElement> (envelope.Header.Headers);
-                envelopeHeaders.AddRange (headers);
-                envelope.Header.Headers = envelopeHeaders.ToArray ();
+            }
+            else
+            {
+                var envelopeHeaders = new List<XElement>(envelope.Header.Headers);
+                envelopeHeaders.AddRange(headers);
+                envelope.Header.Headers = envelopeHeaders.ToArray();
             }
 
             return envelope;
@@ -127,9 +131,9 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="headers">The <see cref="SoapHeader"/> collection to append</param>
         /// <returns>The <see cref="SoapEnvelope"/> after changes</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapEnvelope WithHeaders (this SoapEnvelope envelope, IEnumerable<XElement> headers)
+        public static SoapEnvelope WithHeaders(this SoapEnvelope envelope, IEnumerable<XElement> headers)
         {
-            return envelope.WithHeaders (headers.ToArray ());
+            return envelope.WithHeaders(headers.ToArray());
         }
 
         /// <summary>
@@ -140,16 +144,17 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="headers">The <see cref="SoapHeader"/> collection to append</param>
         /// <returns>The <see cref="SoapEnvelope"/> after changes</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapEnvelope WithHeaders (this SoapEnvelope envelope, params SoapHeader[] headers)
+        public static SoapEnvelope WithHeaders(this SoapEnvelope envelope, params SoapHeader[] headers)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
-            if (headers == null) throw new ArgumentNullException (nameof (headers));
+            if (envelope == null) throw new ArgumentNullException(nameof(envelope));
+            if (headers == null) throw new ArgumentNullException(nameof(headers));
 
             if (headers.Length == 0) return envelope;
 
-            var xElementHeaders = new XElement [headers.Length];
-            for (var i = 0; i < headers.Length; i++) {
-                xElementHeaders [i] = headers [i].ToXElement ();
+            var xElementHeaders = new XElement[headers.Length];
+            for (var i = 0; i < headers.Length; i++)
+            {
+                xElementHeaders[i] = headers[i].ToXElement();
             }
 
             return envelope.WithHeaders(xElementHeaders);
@@ -163,9 +168,9 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="headers">The <see cref="SoapHeader"/> collection to append</param>
         /// <returns>The <see cref="SoapEnvelope"/> after changes</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapEnvelope WithHeaders (this SoapEnvelope envelope, IEnumerable<SoapHeader> headers)
+        public static SoapEnvelope WithHeaders(this SoapEnvelope envelope, IEnumerable<SoapHeader> headers)
         {
-            return envelope.WithHeaders (headers.ToArray ());
+            return envelope.WithHeaders(headers.ToArray());
         }
 
         /// <summary>
@@ -175,15 +180,16 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="name">The <see cref="XName"/> to search.</param>
         /// <returns>The <see cref="XElement"/> or null if not match is found</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static XElement Header (this SoapEnvelope envelope, XName name)
+        public static XElement Header(this SoapEnvelope envelope, XName name)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
+            if (envelope == null) throw new ArgumentNullException(nameof(envelope));
 
-            if (envelope.Header == null || envelope.Header.Headers.Length == 0) {
+            if (envelope.Header == null || envelope.Header.Headers.Length == 0)
+            {
                 return null;
             }
 
-            return envelope.Header.Headers.FirstOrDefault (xElement => xElement.Name == name);
+            return envelope.Header.Headers.FirstOrDefault(xElement => xElement.Name == name);
         }
 
         /// <summary>
@@ -193,9 +199,9 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="name">The <see cref="XName"/> to search.</param>
         /// <returns>The <see cref="SoapHeader"/> or null if not match is found</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T Header<T> (this SoapEnvelope envelope, XName name) where T: SoapHeader
+        public static T Header<T>(this SoapEnvelope envelope, XName name) where T : SoapHeader
         {
-            return envelope.Header (name).ToObject<T> ();
+            return envelope.Header(name).ToObject<T>();
         }
 
         #endregion
@@ -208,9 +214,10 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="envelope">The <see cref="SoapEnvelope"/> to validate</param>
         /// <returns>True if a fault exists</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static bool IsFaulted (this SoapEnvelope envelope)
+        public static bool IsFaulted(this SoapEnvelope envelope)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
+            if (envelope == null)
+                throw new ArgumentNullException(nameof(envelope));
 
             return envelope.Body?.Value != null && envelope.Body.Value.Name == SoapFaultXName;
         }
@@ -222,20 +229,20 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="envelope">The <see cref="SoapEnvelope"/> to validate.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="FaultException">Thrown if the body contains a fault</exception>
-        public static void ThrowIfFaulted (this SoapEnvelope envelope)
+        public static void ThrowIfFaulted(this SoapEnvelope envelope)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
+            if (envelope == null)
+                throw new ArgumentNullException(nameof(envelope));
 
-            if (!envelope.IsFaulted ()) return;
-
-            var fault = envelope.Fault ();
-            throw new FaultException
+            if (envelope.IsFaulted())
             {
-                Code = fault.Code,
-                String = fault.String,
-                Actor = fault.Actor,
-                Detail = fault.Detail
-            };
+                var fault = envelope.Fault();
+                throw new FaultException(fault.Reason.Text.Value)
+                {
+                    Code = fault.Code.Subcode.Value,
+                    Detail = envelope.Body?.Value
+                };
+            }
         }
 
         /// <summary>
@@ -246,11 +253,12 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <param name="envelope">The <see cref="SoapEnvelope"/> to be used</param>
         /// <returns>The <see cref="SoapFault"/></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SoapFault Fault (this SoapEnvelope envelope)
+        public static SoapFault Fault(this SoapEnvelope envelope)
         {
-            if (envelope == null) throw new ArgumentNullException (nameof (envelope));
+            if (envelope == null)
+                throw new ArgumentNullException(nameof(envelope));
 
-            return envelope.Body?.Value.ToObject<SoapFault> ();
+            return envelope.Body?.Value.ToObject<SoapFault>();
         }
 
         #endregion
