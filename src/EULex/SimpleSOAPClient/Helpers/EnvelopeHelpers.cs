@@ -237,10 +237,12 @@ namespace EULex.SimpleSOAPClient.Helpers
             if (envelope.IsFaulted())
             {
                 var fault = envelope.Fault();
-                throw new FaultException(fault.Reason.Text.Value)
+                throw new FaultException
                 {
-                    Code = fault.Code.Subcode.Value,
-                    Detail = envelope.Body?.Value
+                    Code = fault.Code,
+                    String = fault.String,
+                    Actor = fault.Actor,
+                    Detail = fault.Detail
                 };
             }
         }

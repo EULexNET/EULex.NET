@@ -21,56 +21,40 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 #endregion
+
 namespace EULex.SimpleSOAPClient.Models
 {
-    using System;
+    using System.Xml.Linq;
     using System.Xml.Serialization;
 
-    [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
-    [XmlRoot(Namespace = "http://www.w3.org/2003/05/soap-envelope", IsNullable = false, ElementName = "Fault")]
+    /// <summary>
+    /// Represents a SOAP Fault
+    /// </summary>
+    [XmlRoot("Fault", Namespace = Constant.Namespace.SoapSchemasSoapEnvelope)]
     public class SoapFault
     {
-        public FaultCode Code { get; set; }
+        /// <summary>
+        /// The fault code
+        /// </summary>
+        [XmlElement("faultcode", Namespace = "")]
+        public string Code { get; set; }
 
-        public FaultReason Reason { get; set; }
-    }
+        /// <summary>
+        /// The fault string
+        /// </summary>
+        [XmlElement("faultstring", Namespace = "")]
+        public string String { get; set; }
 
+        /// <summary>
+        /// The fault actor
+        /// </summary>
+        [XmlElement("faultactor", Namespace = "")]
+        public string Actor { get; set; }
 
-    [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
-    public class FaultCode
-    {
-        public string Value { get; set; }
-
-        public FaultCodeSubcode Subcode { get; set; }
-    }
-
-
-    [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
-    public class FaultCodeSubcode
-    {
-        public string Value { get; set; }
-    }
-
-
-    [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
-    public class FaultReason
-    {
-        public FaultReasonText Text { get; set; }
-    }
-
-
-    [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://www.w3.org/2003/05/soap-envelope")]
-    public partial class FaultReasonText
-    {
-        [XmlAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, Namespace = "http://www.w3.org/XML/1998/namespace")]
-        public string lang { get; set; }
-
-        [XmlTextAttribute()]
-        public string Value { get; set; }
+        /// <summary>
+        /// The fault detail
+        /// </summary>
+        [XmlAnyElement("detail", Namespace = "")]
+        public XElement Detail { get; set; }
     }
 }
