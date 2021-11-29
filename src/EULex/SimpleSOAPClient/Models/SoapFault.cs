@@ -23,7 +23,6 @@
 #endregion
 namespace EULex.SimpleSOAPClient.Models
 {
-    using System.Xml.Linq;
     using System.Xml.Serialization;
 
     /// <summary>
@@ -35,25 +34,38 @@ namespace EULex.SimpleSOAPClient.Models
         /// <summary>
         /// The fault code
         /// </summary>
-        [XmlElement ("faultcode", Namespace = "")]
-        public string Code { get; set; }
+        public FaultCode Code { get; set; }
 
         /// <summary>
-        /// The fault string
+        /// The fault reason
         /// </summary>
-        [XmlElement ("faultstring", Namespace = "")]
-        public string String { get; set; }
+        public FaultReason Reason { get; set; }
+    }
 
-        /// <summary>
-        /// The fault actor
-        /// </summary>
-        [XmlElement ("faultactor", Namespace = "")]
-        public string Actor { get; set; }
+    public class FaultCode
+    {        
+        public string Value { get; set; }
 
-        /// <summary>
-        /// The fault detail
-        /// </summary>
-        [XmlAnyElement ("detail", Namespace = "")]
-        public XElement Detail { get; set; }
+        public FaultCodeSubcode Subcode { get; set; }
+    }
+
+    public class FaultCodeSubcode
+    {      
+        public string Value { get; set; }
+    }
+
+    public class FaultReason
+    {
+        public FaultReasonText Text { get; set; }
+    }
+
+    public partial class FaultReasonText
+    {
+        [XmlAttribute("xml:lang")]
+        public string Language { get; set; }
+
+        
+        [XmlText]
+        public string Value { get; set; }
     }
 }

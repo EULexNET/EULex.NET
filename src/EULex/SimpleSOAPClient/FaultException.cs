@@ -39,16 +39,6 @@ namespace EULex.SimpleSOAPClient
         public string Code { get; set; }
 
         /// <summary>
-        /// The fault string
-        /// </summary>
-        public string String { get; set; }
-
-        /// <summary>
-        /// The fault actor
-        /// </summary>
-        public string Actor { get; set; }
-
-        /// <summary>
         /// The fault detail
         /// </summary>
         public XElement Detail { get; set; }

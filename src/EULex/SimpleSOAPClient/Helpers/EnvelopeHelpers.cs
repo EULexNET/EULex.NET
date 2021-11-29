@@ -226,16 +226,15 @@ namespace EULex.SimpleSOAPClient.Helpers
         {
             if (envelope == null) throw new ArgumentNullException (nameof (envelope));
 
-            if (!envelope.IsFaulted ()) return;
-
-            var fault = envelope.Fault ();
-            throw new FaultException
+            if (envelope.IsFaulted())
             {
-                Code = fault.Code,
-                String = fault.String,
-                Actor = fault.Actor,
-                Detail = fault.Detail
-            };
+                var fault = envelope.Fault();
+                throw new FaultException(fault.Reason.Text.Value)
+                {
+                    Code = fault.Code.Subcode.Value,
+                    Detail = envelope.Body?.Value
+                };
+            }
         }
 
         /// <summary>
