@@ -96,6 +96,22 @@ namespace EULex.IntegrationTests
             Assert.That (response.Results [last_count - 1].Content.Notice, Is.Not.Null);
         }
 
+        [Test]
+        public async Task CheckResultItem ()
+        {
+            var response = await client.DoQueryAsync (search_request);
+
+            var item = response.Results[0];
+
+            Assert.That (item.Reference, Does.StartWith ("eng_cellar:"));
+            Assert.That (item.Rank, Is.EqualTo(1));
+            Assert.That (item.DocumentLinks[0].Type, Is.AnyOf("doc", "html", "pdf"));
+            Assert.That (item.DocumentLinks[0].Value, Does.StartWith("https://eur-lex.europa.eu"));
+
+            Assert.That (item.Content, Is.Not.Null);
+            Assert.That (item.Content.SubDomains, Does.Contain("ALL_ALL"));
+            Assert.That (item.Content.Notice, Is.Not.Null);
+        }
     }
 }
 

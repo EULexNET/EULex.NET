@@ -67,9 +67,6 @@ namespace EULex.Model
         [XmlElement ("MANIFESTATION_COURT-REPORT_PART_YEAR")]
         public Literal CourtReportPartYear { get; set; }
 
-        [XmlElement ("MANIFESTATION_HAS_ITEM")]
-        public Collection<ManifestationItem> Items { get; set; }
-
         [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_AUTHOR_PRINTER")]
         public Collection<Literal> OfficialJournalPartPrinterAuthors { get; set; }
 

@@ -1,5 +1,5 @@
-﻿//
-// Copyright 2016 Bertrand Lorentz
+//
+// Copyright 2021 Bertrand Lorentz
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,35 +20,43 @@
 // THE SOFTWARE.
 
 using System;
-using System.Collections.ObjectModel;
-using System.Xml.Serialization;
+using System.Linq;
+using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace EULex.Model
+using EULex.Model;
+
+namespace EULex.IntegrationTests
 {
-    /// <summary>
-    /// Provides a representation of data associated with a single search result.
-    /// </summary>
-    [XmlType (Namespace="http://eur-lex.europa.eu/search")]
-    public partial class Document
+    [TestFixture]
+    public class Document32021D1073Test
     {
-        [XmlElement ("DTS_SUBDOM")]
-        public Collection<String> SubDomains { get; set; }
+        Notice notice;
 
-        [XmlElement ("NOTICE")]
-        public Notice Notice { get; set; }
+        [OneTimeSetUp]
+        protected async Task SetUp ()
+        {
+            notice = await TestUtils.GetSingleNotice ("DN = 32021D1073", Language.en);
+        }
 
-        [XmlElement ("CONTENT_URL")]
-        public Collection<ContentUrl> ContentUrls { get; set; }
-    }
+        [Test]
+        public void HasWork ()
+        {
+            Assert.That (notice.Work, Is.Not.Null);
+        }
 
-    /// <summary>
-    /// Represents the URL of one piece of content.
-    /// </summary>
-    [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
-    public partial class ContentUrl
-    {
-        [XmlElement ("DRECONTENT")]
-        public string Content { get; set; }
+        [Test]
+        public void CheckCelex ()
+        {
+            var v = notice.Work.Celex [0].Value;
+            Assert.That (v, Is.EqualTo ("32021D1073"));
+        }
+
+        [Test]
+        public void CheckWorkTitle ()
+        {
+            var v = notice.Work.Title [0].Value;
+            Assert.That (v, Does.StartWith ("COMMISSION IMPLEMENTING DECISION"));
+        }
     }
 }
-

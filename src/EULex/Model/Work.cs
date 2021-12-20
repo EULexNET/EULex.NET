@@ -674,6 +674,12 @@ namespace EULex.Model
 
         [XmlElement ("WORK_TABLE-OF-CONTENTS")]
         public Collection<Literal> TableOfContents { get; set; }
+
+        [XmlElement ("WORK_TITLE")]
+        public Collection<Literal> Title { get; set; }
+
+        [XmlElement ("LATEST_CONSLEG_DATE")]
+        public Date LatestConsolidation { get; set; }
     }
 }
 
