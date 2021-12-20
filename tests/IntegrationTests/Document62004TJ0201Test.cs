@@ -196,7 +196,8 @@ namespace EULex.IntegrationTests
         [Test]
         public void CheckManifestationMetadata ()
         {
-            var v = notice.Manifestations [0];
+            var v = notice.Manifestations.First(m => m.CourtReportPartFirstPage != null);
+            
             Assert.That (v.CourtReportPartFirstPage.Value, Is.EqualTo ("03601"));
             Assert.That (v.CourtReportPartType.Value, Is.EqualTo ("RJII"));
             Assert.That (v.CourtReportPartYear.Value, Is.EqualTo ("2007"));
