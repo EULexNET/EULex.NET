@@ -44,3 +44,6 @@ app.config
 docs/api/*.yml
 docs/api/.manifest
 docs/_site
+
+# Logs from failed tests
+*.log

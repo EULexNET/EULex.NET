@@ -78,7 +78,7 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <returns>The deserialized object</returns>
         public static T ToObject<T> (this string xml)
         {
-            if (string.IsNullOrWhiteSpace (xml)) return default (T);
+            if (string.IsNullOrWhiteSpace (xml)) return default;
 
             using (var textWriter = new StringReader (xml)) {
                 var result = (T)new XmlSerializer (typeof (T)).Deserialize (textWriter);
@@ -96,7 +96,7 @@ namespace EULex.SimpleSOAPClient.Helpers
         /// <returns>The deserialized object</returns>
         public static T ToObject<T> (this XElement xml)
         {
-            return xml == null ? default (T) : xml.ToString ().ToObject<T> ();
+            return xml == null ? default : xml.ToString ().ToObject<T> ();
         }
     }
 }

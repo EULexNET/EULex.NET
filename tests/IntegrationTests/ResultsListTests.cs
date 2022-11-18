@@ -33,7 +33,7 @@ namespace EULex.IntegrationTests
     {
         Client client;
         SearchRequest search_request;
-        int page_size = 20;
+        readonly int page_size = 20;
 
         [OneTimeSetUp]
         protected void SetUp ()

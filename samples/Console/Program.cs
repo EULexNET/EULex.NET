@@ -31,7 +31,7 @@ namespace ConsoleSample
 {
     class MainClass
     {
-        public static void Main (string[] args)
+        public static void Main ()
         {
             MainAsync ().Wait ();
         }
