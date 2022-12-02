@@ -79,6 +79,12 @@ namespace EULex.Model
         [XmlElement ("LANG")]
         public string Lang { get; set; }
 
+        [XmlElement ("APPLICANT_FROM_NOMUSUEL")]
+        public string Applicant { get; set; }
+
+        [XmlElement ("DEFENDANT_FROM_NOMUSUEL")]
+        public string Defendant { get; set; }
+
         [XmlAttribute ()]
         public XsdType XsdType { get; set; }
     }

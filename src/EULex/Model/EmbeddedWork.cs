@@ -52,6 +52,9 @@ namespace EULex.Model
         [XmlElement ("ID_SECTOR")]
         public Collection<Literal> Sector { get; set; }
 
+        [XmlElement ("ID_CELEX")]
+        public Collection<Literal> Celex { get; set; }
+
         [XmlElement ("LEGAL_EFFECT_PAPER")]
         public Literal LegalEffectPaper { get; set; }
 
@@ -70,14 +73,23 @@ namespace EULex.Model
         [XmlElement ("RESOURCE_LEGAL_IS_ABOUT_CONCEPT_DIRECTORY-CODE")]
         public Collection<DirectoryCode> DirectoryCodes { get; set; }
 
+        [XmlElement ("RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER")]
+        public Collection<SubjectMatter> SubjectMatters { get; set; }
+
         [XmlElement ("RESOURCE_LEGAL_NUMBER_NATURAL_CELEX")]
         public Collection<Literal> NaturalNumberCelex { get; set; }
+
+        [XmlElement ("RESOURCE_LEGAL_NUMBER_NATURAL")]
+        public Collection<Literal> NaturalNumber { get; set; }
 
         [XmlElement ("RESOURCE_LEGAL_TYPE")]
         public Collection<Literal> DocumentType { get; set; }
 
         [XmlElement ("RESOURCE_LEGAL_YEAR")]
         public Collection<Literal> DocumentYear { get; set; }
+
+        [XmlElement ("RESOURCE_LEGAL_ID_CELEX")]
+        public Collection<Literal> ResourceLegalCelex { get; set; }
 
         [XmlElement ("SPECIAL-OFFICIAL-JOURNAL_FIRST_SERIES_HISTORICAL")]
         public Literal SpecialOfficialJournalFirstHistoricalSeries { get; set; }
@@ -97,11 +109,20 @@ namespace EULex.Model
         [XmlElement ("WORK_IS_ABOUT_CONCEPT_EUROVOC")]
         public Collection<Eurovoc> Eurovoc { get; set; }
 
-        [XmlElement ("SAMEAS")]
-        public Collection<SameAs> SameAs { get; set; }
+        [XmlElement ("WORK_HAS_RESOURCE-TYPE")]
+        public Collection<Concept> ResourceType { get; set; }
+
+        [XmlElement ("AGREEMENT_INTERNATIONAL_ASSOCIATED_TO_RESOURCE_LEGAL")]
+        public Collection<Relation> InternationalAgreementAssociatedTo { get; set; }
+
+        [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT_NEW_CASE-LAW")]
+        public Collection<NewCaseLawDirectoryCode> CaseLawNewDirectoryCodes { get; set; }
 
         [XmlElement ("TYPE")]
         public Collection<Relation> Type { get; set; }
+
+        [XmlElement ("SAMEAS")]
+        public Collection<SameAs> SameAs { get; set; }
 
         [XmlElement ("URI")]
         public Uri Uri { get; set; }

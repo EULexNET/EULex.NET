@@ -78,6 +78,58 @@ namespace EULex.Model
 
         [XmlElement ("FRAGMENT_CITING_SOURCE")]
         public Collection<string> FragmentCitingSource { get; set; }
+
+        [XmlElement ("ROLE2")]
+        public Collection<string> Role2 { get; set; }
+
+        [XmlElement ("LANGUAGE_LIST")]
+        public Collection<string> LanguageList { get; set; }
+
+        [XmlElement ("INDENT")]
+        public Collection<string> Indent { get; set; }
+
+        [XmlElement ("END_OF_VALIDITY")]
+        public Collection<string> EndOfValidity { get; set; }
+
+        [XmlElement ("ALINEA")]
+        public Collection<string> Alinea { get; set; }
+
+        [XmlElement ("FAMILLE")]
+        public Collection<string> Famille { get; set; }
+
+        [XmlElement ("TRANSPOSITION_DEADLINE_TRANSMITTED")]
+        public Collection<string> TranspositionDeadlineTransmitted { get; set; }
+
+        [XmlElement ("TRANSPOSITION_NOTIFICATION")]
+        public Collection<string> TranspositionNotification { get; set; }
+
+        [XmlElement ("ELI_TARGET")]
+        public Collection<string> EliTarget { get; set; }
+
+        [XmlElement ("ANNEX")]
+        public Collection<string> Annex { get; set; }
+
+        [XmlElement ("CHAPTER")]
+        public Collection<string> Chapter { get; set; }
+
+        [XmlElement ("COUNTRY")]
+        public Collection<string> Country { get; set; }
+
+        [XmlElement ("ELI_SOURCE")]
+        public Collection<string> EliSource { get; set; }
+
+        [XmlElement ("PROTOCOL")]
+        public Collection<string> Protocol { get; set; }
+
+        [XmlElement ("REFERENCE_TO_MODIFYING_LOCATION")]
+        public Collection<string> ReferenceToModifyingLocation { get; set; }
+
+        [XmlElement ("ORDER")]
+        public Collection<string> Order { get; set; }
+
+        [XmlElement ("CHANGED_TO_IDENTIFIER")]
+        public Collection<string> ChangedToIdentifier { get; set; }
+
     }
 }
 

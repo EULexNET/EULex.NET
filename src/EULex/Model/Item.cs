@@ -1,5 +1,5 @@
-﻿//
-// Copyright 2016 Bertrand Lorentz
+//
+// Copyright 2022 Bertrand Lorentz
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,25 +26,41 @@ using System.Xml.Serialization;
 namespace EULex.Model
 {
     [XmlType (Namespace="http://eur-lex.europa.eu/search")]
-    public partial class EmbeddedNotice
+    public partial class Item
     {
-        [XmlElement ("AGENT")]
-        public EmbeddedAgent Agent { get; set; }
+        [XmlElement ("BELONGS_TO")]
+        public BelongsTo BelongsTo { get; set; }
 
-        [XmlElement ("DOSSIER")]
-        public EmbeddedDossier Dossier {  get; set; }
+        [XmlElement ("IDENTIFIER")]
+        public Literal Identifier { get; set; }
 
-        [XmlElement ("EVENT")]
-        public Event Event {  get; set; }
+        [XmlElement ("ITEM_BELONGS_TO_MANIFESTATION")]
+        public BelongsTo ItemBelongsToManifestation { get; set; }
 
-        [XmlElement ("EXPRESSION")]
-        public EmbeddedExpression Expression { get; set; }
+        [XmlElement ("ITEM_IDENTIFIER")]
+        public Literal ItemIdentifier { get; set; }
 
-        [XmlElement ("MANIFESTATION")]
-        public Collection<EmbeddedManifestation> Manifestations { get; set; }
+        [XmlElement ("SAMEAS")]
+        public Collection<SameAs> SameAs { get; set; }
 
-        [XmlElement ("WORK")]
-        public EmbeddedWork Work { get; set; }
+        [XmlElement ("TECHMD")]
+        public string TechnicalMetadata { get; set; }
+
+        [XmlElement ("URI")]
+        public Uri Uri { get; set; }
+    }
+
+    [XmlType (Namespace="http://eur-lex.europa.eu/search")]
+    public partial class BelongsTo
+    {
+        [XmlElement ("SAMEAS")]
+        public Collection<SameAs> SameAs { get; set; }
+
+        [XmlElement ("URI")]
+        public Uri Uri { get; set; }
+
+        [XmlAttribute ("TYPE")]
+        public string Type { get; set; }
+
     }
 }
-

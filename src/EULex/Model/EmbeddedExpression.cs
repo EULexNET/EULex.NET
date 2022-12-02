@@ -31,8 +31,14 @@ namespace EULex.Model
         [XmlElement ("EXPRESSION_TITLE")]
         public Literal Title { get; set; }
 
+        [XmlElement ("EXPRESSION_TITLE_ALTERNATIVE")]
+        public Literal AlternativeTitle { get; set; }
+
         [XmlElement ("EXPRESSION_USES_LANGUAGE")]
         public Concept Language { get; set; }
+
+        [XmlElement ("EXPRESSION_MANIFESTED_BY_MANIFESTATION")]
+        public Collection<Relation> ManifestedBy { get; set; }
 
         [XmlElement ("SAMEAS")]
         public Collection<SameAs> SameAs { get; set; }

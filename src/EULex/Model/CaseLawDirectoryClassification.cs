@@ -30,6 +30,16 @@ namespace EULex.Model
     {
         [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT")]
         public Collection<CaseLawDirectoryClassificationEntry> ClassificationEntries { get; set; }
+
+        [XmlElement ("NESTEDLIST")]
+        public Collection<NestedList> NestedLists { get; set; }
+    }
+
+    [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
+    public partial class NestedList
+    {
+        [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT")]
+        public Collection<CaseLawDirectoryClassificationEntry> ClassificationEntries { get; set; }
     }
 
     [XmlType (AnonymousType=true, Namespace="http://eur-lex.europa.eu/search")]
@@ -55,31 +65,16 @@ namespace EULex.Model
 
         [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT_7", typeof (Concept))]
         public Concept Level7 { get; set; }
-    }
 
-    [XmlType (Namespace="http://eur-lex.europa.eu/search", IncludeInSchema=false)]
-    public enum CaseLawDirectoryClassificationLevel
-    {
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_1")]
-        CASELAW_IS_ABOUT_CONCEPT_1,
+        [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT_8", typeof (Concept))]
+        public Concept Level8 { get; set; }
 
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_2")]
-        CASELAW_IS_ABOUT_CONCEPT_2,
+        [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT_9", typeof (Concept))]
+        public Concept Level9 { get; set; }
 
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_3")]
-        CASELAW_IS_ABOUT_CONCEPT_3,
+        [XmlElement ("CASE-LAW_IS_ABOUT_CONCEPT_10", typeof (Concept))]
+        public Concept Level10 { get; set; }
 
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_4")]
-        CASELAW_IS_ABOUT_CONCEPT_4,
-
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_5")]
-        CASELAW_IS_ABOUT_CONCEPT_5,
-
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_6")]
-        CASELAW_IS_ABOUT_CONCEPT_6,
-
-        [XmlEnum ("CASE-LAW_IS_ABOUT_CONCEPT_7")]
-        CASELAW_IS_ABOUT_CONCEPT_7,
     }
 }
 

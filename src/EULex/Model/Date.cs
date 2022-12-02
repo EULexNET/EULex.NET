@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 
 namespace EULex.Model
@@ -53,7 +54,7 @@ namespace EULex.Model
         public string Year { get; set; }
 
         [XmlElement ("ANNOTATION")]
-        public Annotation Annotation { get; set; }
+        public Collection<Annotation> Annotations { get; set; }
     }
 }
 

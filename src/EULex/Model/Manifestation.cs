@@ -67,8 +67,17 @@ namespace EULex.Model
         [XmlElement ("MANIFESTATION_COURT-REPORT_PART_YEAR")]
         public Literal CourtReportPartYear { get; set; }
 
+        [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL-ACT_LEGAL_EFFECT_PAPER")]
+        public Literal LegalEffectPaper { get; set; }
+
         [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_AUTHOR_PRINTER")]
         public Collection<Literal> OfficialJournalPartPrinterAuthors { get; set; }
+
+        [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_INFORMATION_NUMBER")]
+        public Collection<Literal> OfficialJournalPartInformationNumber { get; set; }
+
+        [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_NATURAL_NUMBER")]
+        public Collection<Literal> OfficialJournalPartNaturalNumber { get; set; }
 
         [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_FIRST")]
         public Literal OfficialJournalPartFirstPage { get; set; }
@@ -78,6 +87,9 @@ namespace EULex.Model
 
         [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_SECTION_OJ")]
         public Literal OfficialJournalPartSection { get; set; }
+
+        [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_SUBSECTION_OJ")]
+        public Literal OfficialJournalPartSubSection { get; set; }
 
         [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_TYPEDOC_PRINTER")]
         public Literal OfficialJournalPartPrinterDocumentType { get; set; }

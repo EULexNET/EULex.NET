@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 
 namespace EULex.Model
@@ -29,6 +30,9 @@ namespace EULex.Model
     {
         [XmlElement ("URI")]
         public Uri Uri { get; set; }
+
+        [XmlElement ("ANNOTATION")]
+        public Collection<Annotation> Annotations { get; set; }
 
         [XmlIgnore]
         public string Value {

@@ -38,7 +38,7 @@ namespace EULex.Model
         public Collection<Concept> ConsultsInstitutions { get; set; }
 
         [XmlElement ("EVENT_LEGAL_CONTAINS_WORK")]
-        public Collection<Concept> ContainsWorks { get; set; }
+        public Collection<Relation> ContainsWorks { get; set; }
 
         [XmlElement ("EVENT_LEGAL_DATE")]
         public Date Date { get; set; }

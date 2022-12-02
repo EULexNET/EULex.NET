@@ -57,8 +57,8 @@ namespace EULex.IntegrationTests
         public void CheckCaseLawDefendedBy ()
         {
             var v = notice.Work.CaseLawDefendedBy;
-            Assert.That (v.Any (e => e.Identifier == "IC"));
-            Assert.That (v.Any (e => e.Identifier == "COMM"));
+            Assert.That (v.Any (e => e.SameAs.Any(i => i.Uri.Identifier == "EUINST")));
+            Assert.That (v.Any (e => e.SameAs.Any(i => i.Uri.Identifier == "COM")));
         }
 
         [Test]
@@ -73,16 +73,15 @@ namespace EULex.IntegrationTests
         [Test]
         public void CheckCaseLawIsAbout ()
         {
-            // TODO CaseLawIsAbout
-            //var v = notice.Work.CaseLawIsAbout;
-            //Assert.That (v.Any (e => e.ClassificationEntries == "ANNU=OB"));
+            var v = notice.Work.CaseLawIsAbout;
+            Assert.That (v.Any (e => e.ClassificationEntries.Any (e => e.Level5.Identifier == "B-07.03.02.00")));
         }
 
         [Test]
         public void CheckCaseLawRequestedBy ()
         {
             var v = notice.Work.CaseLawRequestedBy;
-            Assert.That (v.Any (e => e.Identifier == "PART"));
+            Assert.That (v.Any (e => e.SameAs.Any(i => i.Uri.Identifier == "INDIV")));
         }
 
         [Test]

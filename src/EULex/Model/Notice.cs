@@ -50,9 +50,6 @@ namespace EULex.Model
         [XmlElement ("MANIFESTATION")]
         public Collection<Manifestation> Manifestations { get; set; }
 
-        [XmlElement ("INVERSE")]
-        public Inverse Inverse { get; set; }
-
         [XmlElement ("DOSSIER")]
         public Dossier Dossier { get; set; }
 

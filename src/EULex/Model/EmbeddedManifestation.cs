@@ -28,6 +28,12 @@ namespace EULex.Model
     [XmlType (Namespace="http://eur-lex.europa.eu/search")]
     public partial class EmbeddedManifestation
     {
+        [XmlElement ("MANIFESTATION_HAS_ITEM")]
+        public Collection<Item> Items { get; set; }
+
+        [XmlElement ("MANIFESTATION_TYPE")]
+        public Literal Type { get; set; }
+
         [XmlElement ("MANIFESTATION_OFFICIAL-JOURNAL_PART_PAGE_FIRST")]
         public Literal OfficialJournalPartFirstPage { get; set; }
 
@@ -35,7 +41,7 @@ namespace EULex.Model
         public Literal OfficialJournalPartLastPage { get; set; }
 
         [XmlElement ("MANIFESTATION_PART_OF_MANIFESTATION")]
-        public Collection<Concept> PartOfManifestations { get; set; }
+        public Collection<Relation> PartOfManifestations { get; set; }
 
         [XmlElement ("MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL_PART_PAGE_FIRST")]
         public Literal SpecialOfficialJournalPartFirstPage { get; set; }
@@ -43,13 +49,22 @@ namespace EULex.Model
         [XmlElement ("MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL_PART_PAGE_LAST")]
         public Literal SpecialOfficialJournalPartLastPage { get; set; }
 
+        [XmlElement ("MANIFESTATION-SPECIAL-OFFICIAL-JOURNAL-ACT_IS_ABOUT_CONCEPT_DIRECTORY-CODE")]
+        public Collection<DirectoryCode> SpecialOfficialJournalActDirectoryCodes { get; set; }
+
+        [XmlElement ("MANIFESTATION_SPECIAL-OFFICIAL-JOURNAL-ACT_DATE_PUBLICATION")]
+        public Date SpecialOfficialJournalActPublicationDate { get; set; }
+
+        [XmlElement ("MANIFESTATION_URI")]
+        public Collection<Literal> ExternalUris { get; set; }
+
         [XmlElement ("SAMEAS")]
         public Collection<SameAs> SameAs { get; set; }
 
         [XmlElement ("URI")]
         public Uri Uri { get; set; }
 
-        [XmlAttribute ("manifestation-type")]
+        [XmlAttribute ("MANIFESTATION-TYPE")]
         public string ManifestationType { get; set; }
     }
 }

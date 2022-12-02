@@ -48,6 +48,9 @@ namespace EULex.Model
 
         [XmlElement ("URI")]
         public Uri Uri { get; set; }
+
+        [XmlElement ("VALUE")]
+        public string Value { get; set; }
     }
 }
 

@@ -29,6 +29,15 @@ namespace EULex.Model
     {
         [XmlElement ("RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER_1")]
         public Concept Concept { get; set; }
+
+        [XmlElement ("RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER_2")]
+        public Concept Concept2 { get; set; }
+
+        [XmlElement ("RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER_3")]
+        public Concept Concept3 { get; set; }
+
+        [XmlElement ("RESOURCE_LEGAL_IS_ABOUT_SUBJECT-MATTER_4")]
+        public Concept Concept4 { get; set; }
     }
 }
 

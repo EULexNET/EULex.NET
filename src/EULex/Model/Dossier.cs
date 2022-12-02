@@ -53,7 +53,7 @@ namespace EULex.Model
         public Literal IsPending { get; set; }
 
         [XmlElement ("DOSSIER_PRODUCES_RESOURCE_LEGAL")]
-        public Collection<Concept> ProducesWorks { get; set; }
+        public Collection<Relation> ProducesWorks { get; set; }
 
         [XmlElement ("DOSSIER_TYPE_REFERENCE")]
         public Literal ReferenceType { get; set; }

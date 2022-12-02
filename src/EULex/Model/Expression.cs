@@ -43,6 +43,9 @@ namespace EULex.Model
         [XmlElement ("EXPRESSION_TITLE_ALTERNATIVE")]
         public Collection<Literal> AlternativeTitle { get; set; }
 
+        [XmlElement ("EXPRESSION_TITLE_SHORT")]
+        public Collection<Literal> ShortTitle { get; set; }
+
         [XmlElement ("EXPRESSION_USES_LANGUAGE")]
         public Collection<Concept> Language { get; set; }
     }

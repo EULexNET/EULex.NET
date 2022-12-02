@@ -93,8 +93,8 @@ namespace EULex.IntegrationTests
         {
             var d = notice.Work.DateEntryIntoForce [0];
             Assert.That (d.Value, Is.EqualTo ("2012-03-23"));
-            Assert.That (d.Annotation.CommentOnDate [0], Does.StartWith ("{DATPUB"));
-            Assert.That (d.Annotation.DateType [0], Does.StartWith ("{EV"));
+            Assert.That (d.Annotations [0].CommentOnDate [0], Does.StartWith ("{DATPUB"));
+            Assert.That (d.Annotations [0].DateType [0], Does.StartWith ("{EV"));
         }
 
         [Test]
@@ -115,7 +115,7 @@ namespace EULex.IntegrationTests
             Assert.That (d.Year, Is.EqualTo ("2013"));
             Assert.That (d.Month, Is.EqualTo ("01"));
             Assert.That (d.Day, Is.EqualTo ("20"));
-            Assert.That (d.Annotation.CommentOnDate [0], Does.StartWith ("{AU+TARD"));
+            Assert.That (d.Annotations [0].CommentOnDate [0], Does.StartWith ("{AU+TARD"));
         }
 
         [Test]
@@ -181,6 +181,15 @@ namespace EULex.IntegrationTests
         {
             var v = notice.Work.InternalComments [0].Value;
             Assert.That (v, Is.EqualTo ("MAN2"));
+        }
+
+
+        [Test]
+        public void CheckManifestations ()
+        {
+            var v = notice.Manifestations;
+            Assert.That (v.Count, Is.EqualTo (4));
+            Assert.That (v, Is.All.Not.Null);
         }
 
         [Test]

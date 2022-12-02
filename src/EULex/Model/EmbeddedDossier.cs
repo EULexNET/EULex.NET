@@ -39,6 +39,18 @@ namespace EULex.Model
 
         [XmlElement ("PROCEDURE_CODE_INTERINSTITUTIONAL_YEAR_PROCEDURE")]
         public Literal ProcedureYear { get; set; }
+
+        [XmlElement ("DOSSIER_TITLE")]
+        public Literal Title { get; set; }
+
+        [XmlElement ("TYPE")]
+        public string Type { get; set; }
+
+       [XmlElement ("DOSSIER_TYPE_REFERENCE")]
+        public Literal ReferenceType { get; set; }
+
+        [XmlElement ("SESSION_DURATION")]
+        public string SessionDuration { get; set; }
     }
 }
 
