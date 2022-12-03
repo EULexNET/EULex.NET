@@ -66,9 +66,7 @@ namespace EULex.SimpleSOAPClient
         /// <param name="httpClient">The <see cref="HttpClient"/> to be used</param>
         public SoapClient (HttpClient httpClient)
         {
-            if (httpClient == null) throw new ArgumentNullException (nameof (httpClient));
-
-            HttpClient = httpClient;
+			HttpClient = httpClient ?? throw new ArgumentNullException (nameof (httpClient));
         }
 
         #endregion
@@ -103,7 +101,7 @@ namespace EULex.SimpleSOAPClient
         /// <param name="ct">The cancellation token</param>
         /// <returns>A task to be awaited for the result</returns>
         public virtual async Task<SoapEnvelope> SendAsync (
-            string url, SoapEnvelope requestEnvelope, CancellationToken ct = default (CancellationToken))
+            string url, SoapEnvelope requestEnvelope, CancellationToken ct = default)
         {
             if (RequestEnvelopeHandler != null) {
                 requestEnvelope = RequestEnvelopeHandler (url, requestEnvelope);

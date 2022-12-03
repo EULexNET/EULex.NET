@@ -44,12 +44,12 @@ namespace EULex.EURLexWebService
         // "2 consecutive calls to EUR-Lex web service must not be performed within 500 ms"
         private static readonly TimeSpan MINIMUM_DELAY_MS = TimeSpan.FromMilliseconds(500);
 
-        private static TimeLimiter rate_limiter = TimeLimiter.GetFromMaxCountByInterval(1, MINIMUM_DELAY_MS);
+        private readonly static TimeLimiter rate_limiter = TimeLimiter.GetFromMaxCountByInterval(1, MINIMUM_DELAY_MS);
 
-        SoapClient soap_client;
-        string server_url;
-        string username;
-        string password;
+        readonly SoapClient soap_client;
+        readonly string server_url;
+        readonly string username;
+        readonly string password;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EULex.EURLexWebService.Client"/> class with the default

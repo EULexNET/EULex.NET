@@ -50,13 +50,15 @@ namespace EULex.IntegrationTests
         {
             using (var client = GetClient ()) {
 
-                var request = new SearchRequest ();
-                request.ExpertQuery = query;
-                request.PageSize = page_size;
-                request.Page = page;
-                request.SearchLanguage = lang;
+				var request = new SearchRequest
+				{
+					ExpertQuery = query,
+					PageSize = page_size,
+					Page = page,
+					SearchLanguage = lang
+				};
 
-                var results = await client.DoQueryAsync (request);
+				var results = await client.DoQueryAsync (request);
                 return results;
             }
         }
