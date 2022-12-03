@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>EULex.IntegrationTests</RootNamespace>
     <AssemblyName>EULex.IntegrationTests</AssemblyName>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
