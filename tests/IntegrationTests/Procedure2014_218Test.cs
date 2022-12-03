@@ -48,8 +48,8 @@ namespace EULex.IntegrationTests
         [Test]
         public void CheckLegalBasis ()
         {
-            var v = notice.Dossier.LegalBasis [0].Value;
-            Assert.That (v, Is.EqualTo ("TFUE/art 91 par 1 pt c"));
+            var v = notice.Dossier.BasedOn [0];
+            Assert.That (v.SameAs.Any (e => e.Uri.Identifier == "12012E091"));
         }
 
         [Test]
