@@ -853,14 +853,13 @@ namespace EULex.Model
         public Collection<Literal> CreationDate { get; set; }
 
         [XmlElement ("COURT_PROCEEDING")]
-        public Collection<String> CourtProceeding { get; set; }
+        public Collection<String> CourtProceedings { get; set; }
 
         [XmlElement ("OFFICIAL-JOURNAL-ACT_DURABILITY")]
         public Collection<Literal> OfficialJournalActDurability { get; set; }
 
         [XmlElement ("OFFICIAL-JOURNAL-ACT_SUBSUBSECTION_OJ")]
         public Collection<Literal> OfficialJournalActSubSubSection { get; set; }
-
     }
 }
 
