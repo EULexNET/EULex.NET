@@ -24,6 +24,7 @@ bld/
 .vs/
 # VS Code
 .vscode/
+*.code-workspace
 
 # NuGet Packages
 *.nupkg
